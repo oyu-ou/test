@@ -118,28 +118,19 @@
   transition: opacity var(--t-fast), color var(--t-fast);
 }
 
-.nav__link::after {
-  content: '';
-  position: absolute;
-  bottom: -2px; left: 0;
-  width: 0; height: 1px;
-  background: var(--accent);
-  transition: width var(--t-base) var(--ease-out);
-}
-
-.nav__link:hover,
-.nav__link.active {
+.nav__link:hover {
   color: var(--fg);
 }
 
-.nav__link.active::after,
-.nav__link:hover::after {
-  width: 100%;
+.nav__link.active {
+  color: var(--bg);
+  background: var(--fg);
+  padding: 3px 8px;
+  margin: -3px -8px;
 }
 
 .nav__link.active .nav__link-idx {
-  color: var(--accent);
-  opacity: 1;
+  opacity: 0.5;
 }
 
 /* Right meta */

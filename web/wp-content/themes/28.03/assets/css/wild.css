@@ -256,24 +256,25 @@ html[data-mode="wild"] #ou-slider {
 /* ── Slide counter (top left) ─────────────────────── */
 .wild__counter {
   position: absolute;
-  top: calc(56px + var(--pad-x)); /* below topbar */
+  top: calc(56px + var(--pad-x));
   left: var(--pad-x);
   z-index: 10;
   font-family: var(--font-mono);
   font-size: var(--sz-xs);
   letter-spacing: var(--ls-widest);
-  color: rgba(255,255,255,0.5);
+  color: var(--fg);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
-[data-theme="light"] .wild__counter { color: rgba(0,0,0,0.5); }
-
 .wild__counter-current {
-  color: var(--fg);
   font-size: var(--sz-sm);
-  transition: color var(--t-slow);
+}
+
+.wild__counter-sep,
+.wild__counter-total {
+  opacity: 0.35;
 }
 
 /* ── Nav arrows ───────────────────────────────────── */

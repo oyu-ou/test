@@ -34,8 +34,8 @@
   /* ── Lerp ring animation ────────────────────────── */
   function loop() {
     requestAnimationFrame(loop);
-    rx += (mx - rx) * 0.1;
-    ry += (my - ry) * 0.1;
+    rx += (mx - rx) * 0.18;
+    ry += (my - ry) * 0.18;
     ring.style.left = rx + 'px';
     ring.style.top  = ry + 'px';
   }

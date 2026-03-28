@@ -63,7 +63,7 @@
   <!-- Counter -->
   <div class="wild__counter">
     <span class="wild__counter-current">01</span>
-    <span style="color:var(--fg-low);">/</span>
+    <span class="wild__counter-sep">/</span>
     <span class="wild__counter-total">00</span>
   </div>
 
