@@ -22,7 +22,7 @@
 <div id="ou-loader" role="status" aria-label="Loading">
   <div class="loader__num"><span class="loader__num-inner">00</span></div>
   <div class="loader__foot">
-    <span class="loader__site-name"><?php echo esc_html( ax('ou_name', get_bloginfo('name')) ); ?></span>
+    <span class="loader__site-name"><?php echo esc_html( ou('ou_name', get_bloginfo('name')) ); ?></span>
     <div class="loader__bar-wrap"><div class="loader__bar"></div></div>
   </div>
 </div>
@@ -31,7 +31,7 @@
 <header id="ou-topbar">
 
   <!-- REPLACE: logo — swap SVG below or set custom logo in Customizer → Site Identity -->
-  <a href="<?php echo esc_url( home_url('/') ); ?>" class="topbar__logo" aria-label="<?php echo esc_attr( ax('ou_name', get_bloginfo('name')) ); ?>">
+  <a href="<?php echo esc_url( home_url('/') ); ?>" class="topbar__logo" aria-label="<?php echo esc_attr( ou('ou_name', get_bloginfo('name')) ); ?>">
     <?php if ( has_custom_logo() ) :
       the_custom_logo();
     else : ?>

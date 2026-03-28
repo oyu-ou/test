@@ -99,29 +99,6 @@ function ou_get_projects_data() {
         return $out;
     }
 
-    /* Dummy fallback — shown until real projects are added */
-    $dummy = array(
-        array( 'title' => 'Brand Identity System',   'cat' => 'graphic', 'year' => '2024', 'gradient' => 'linear-gradient(135deg,#0d0d0d 0%,#1a0a00 50%,#2a1200 100%)' ),
-        array( 'title' => 'Editorial Film Series',   'cat' => 'video',   'year' => '2024', 'gradient' => 'linear-gradient(135deg,#080808 0%,#001020 50%,#002040 100%)' ),
-        array( 'title' => 'Web Experience Design',   'cat' => 'web',     'year' => '2023', 'gradient' => 'linear-gradient(135deg,#0a0a0a 0%,#060018 50%,#100030 100%)' ),
-        array( 'title' => 'Portrait Series Vol. II', 'cat' => 'photo',   'year' => '2023', 'gradient' => 'linear-gradient(135deg,#080808 0%,#0a1a0a 50%,#102010 100%)' ),
-        array( 'title' => 'Motion Campaign',         'cat' => 'video',   'year' => '2023', 'gradient' => 'linear-gradient(135deg,#0c0c0c 0%,#1a0010 50%,#280020 100%)' ),
-        array( 'title' => 'E-Commerce Platform',     'cat' => 'web',     'year' => '2022', 'gradient' => 'linear-gradient(135deg,#080808 0%,#0a0a18 50%,#141428 100%)' ),
-        array( 'title' => 'Landscape Photography',   'cat' => 'photo',   'year' => '2022', 'gradient' => 'linear-gradient(135deg,#0a0a0a 0%,#0f1408 50%,#182008 100%)' ),
-        array( 'title' => 'Type Specimen Poster',    'cat' => 'graphic', 'year' => '2022', 'gradient' => 'linear-gradient(135deg,#0d0d0d 0%,#181008 50%,#201808 100%)' ),
-    );
-    foreach ( $dummy as $p ) {
-        $out[] = array(
-            'id'       => 0,
-            'title'    => $p['title'],
-            'href'     => '#',
-            'cat'      => $p['cat'],
-            'year'     => $p['year'],
-            'imgSrc'   => '',
-            'prevSrc'  => '',
-            'gradient' => $p['gradient'],
-        );
-    }
     return $out;
 }
 
@@ -187,11 +164,11 @@ function ou_customizer( $wp_customize ) {
 
     /* ── Identity ──────────────────────────────────── */
     $wp_customize->add_section( 'ou_id', array( 'title' => 'Site Identity', 'priority' => 20 ) );
-    _ax_text( $wp_customize, 'ou_name',      'ou_id', 'Your Name / Studio',          get_bloginfo('name') );
-    _ax_text( $wp_customize, 'ou_tagline',   'ou_id', 'One-line tagline',             '' );
-    _ax_text( $wp_customize, 'ou_available', 'ou_id', 'Availability text',           'Available for new projects' );
-    _ax_text( $wp_customize, 'ou_edition',   'ou_id', 'Edition label (e.g. Issue N°003)', 'Issue N°001' );
-    _ax_text( $wp_customize, 'ou_location',  'ou_id', 'Location',                    'Remote / Global' );
+    _ou_text( $wp_customize, 'ou_name',      'ou_id', 'Your Name / Studio',          get_bloginfo('name') );
+    _ou_text( $wp_customize, 'ou_tagline',   'ou_id', 'One-line tagline',             '' );
+    _ou_text( $wp_customize, 'ou_available', 'ou_id', 'Availability text',           'Available for new projects' );
+    _ou_text( $wp_customize, 'ou_edition',   'ou_id', 'Edition label (e.g. Issue N°003)', 'Issue N°001' );
+    _ou_text( $wp_customize, 'ou_location',  'ou_id', 'Location',                    'Remote / Global' );
 
     /* ── Hero ──────────────────────────────────────── */
     $wp_customize->add_section( 'ou_hero', array( 'title' => 'Hero Section', 'priority' => 30 ) );
@@ -202,59 +179,59 @@ function ou_customizer( $wp_customize ) {
         'description' => 'Upload mp4 to Media Library, paste URL here.',
         'section'     => 'ou_hero', 'type' => 'url',
     ) );
-    _ax_text( $wp_customize, 'ou_disc1', 'ou_hero', 'Discipline 1', 'Web Design' );
-    _ax_text( $wp_customize, 'ou_disc2', 'ou_hero', 'Discipline 2', 'Video' );
-    _ax_text( $wp_customize, 'ou_disc3', 'ou_hero', 'Discipline 3', 'Photography' );
-    _ax_text( $wp_customize, 'ou_disc4', 'ou_hero', 'Discipline 4', 'Graphic Design' );
+    _ou_text( $wp_customize, 'ou_disc1', 'ou_hero', 'Discipline 1', 'Web Design' );
+    _ou_text( $wp_customize, 'ou_disc2', 'ou_hero', 'Discipline 2', 'Video' );
+    _ou_text( $wp_customize, 'ou_disc3', 'ou_hero', 'Discipline 3', 'Photography' );
+    _ou_text( $wp_customize, 'ou_disc4', 'ou_hero', 'Discipline 4', 'Graphic Design' );
 
     /* ── About ─────────────────────────────────────── */
     $wp_customize->add_section( 'ou_about', array( 'title' => 'About Section', 'priority' => 40 ) );
-    _ax_text(     $wp_customize, 'ou_about_h1',   'ou_about', 'Heading line 1', 'Making things' );
-    _ax_text(     $wp_customize, 'ou_about_h2',   'ou_about', 'Heading line 2', 'that matter.' );
-    _ax_textarea( $wp_customize, 'ou_about_text', 'ou_about', 'Body text',
+    _ou_text(     $wp_customize, 'ou_about_h1',   'ou_about', 'Heading line 1', 'Making things' );
+    _ou_text(     $wp_customize, 'ou_about_h2',   'ou_about', 'Heading line 2', 'that matter.' );
+    _ou_textarea( $wp_customize, 'ou_about_text', 'ou_about', 'Body text',
         'I design and build digital experiences for brands with something to say. Based globally, working globally.' );
-    _ax_text( $wp_customize, 'ou_tag1', 'ou_about', 'Tag 1', 'Web Design' );
-    _ax_text( $wp_customize, 'ou_tag2', 'ou_about', 'Tag 2', 'Video' );
-    _ax_text( $wp_customize, 'ou_tag3', 'ou_about', 'Tag 3', 'Photography' );
-    _ax_text( $wp_customize, 'ou_tag4', 'ou_about', 'Tag 4', 'Graphic Design' );
-    _ax_text( $wp_customize, 'ou_tag5', 'ou_about', 'Tag 5', 'Art Direction' );
+    _ou_text( $wp_customize, 'ou_tag1', 'ou_about', 'Tag 1', 'Web Design' );
+    _ou_text( $wp_customize, 'ou_tag2', 'ou_about', 'Tag 2', 'Video' );
+    _ou_text( $wp_customize, 'ou_tag3', 'ou_about', 'Tag 3', 'Photography' );
+    _ou_text( $wp_customize, 'ou_tag4', 'ou_about', 'Tag 4', 'Graphic Design' );
+    _ou_text( $wp_customize, 'ou_tag5', 'ou_about', 'Tag 5', 'Art Direction' );
 
     /* ── Stats ────────────────────────────────────────── */
     $wp_customize->add_section( 'ou_stats', array( 'title' => 'Stats Strip', 'priority' => 48 ) );
-    _ax_text( $wp_customize, 'ou_stat1_num', 'ou_stats', 'Stat 1 Number', '120+' );
-    _ax_text( $wp_customize, 'ou_stat1_lbl', 'ou_stats', 'Stat 1 Label',  'Projects Delivered' );
-    _ax_text( $wp_customize, 'ou_stat2_num', 'ou_stats', 'Stat 2 Number', '8' );
-    _ax_text( $wp_customize, 'ou_stat2_lbl', 'ou_stats', 'Stat 2 Label',  'Years Active' );
-    _ax_text( $wp_customize, 'ou_stat3_num', 'ou_stats', 'Stat 3 Number', '14' );
-    _ax_text( $wp_customize, 'ou_stat3_lbl', 'ou_stats', 'Stat 3 Label',  'Awards' );
-    _ax_text( $wp_customize, 'ou_stat4_num', 'ou_stats', 'Stat 4 Number', '60+' );
-    _ax_text( $wp_customize, 'ou_stat4_lbl', 'ou_stats', 'Stat 4 Label',  'Happy Clients' );
+    _ou_text( $wp_customize, 'ou_stat1_num', 'ou_stats', 'Stat 1 Number', '120+' );
+    _ou_text( $wp_customize, 'ou_stat1_lbl', 'ou_stats', 'Stat 1 Label',  'Projects Delivered' );
+    _ou_text( $wp_customize, 'ou_stat2_num', 'ou_stats', 'Stat 2 Number', '8' );
+    _ou_text( $wp_customize, 'ou_stat2_lbl', 'ou_stats', 'Stat 2 Label',  'Years Active' );
+    _ou_text( $wp_customize, 'ou_stat3_num', 'ou_stats', 'Stat 3 Number', '14' );
+    _ou_text( $wp_customize, 'ou_stat3_lbl', 'ou_stats', 'Stat 3 Label',  'Awards' );
+    _ou_text( $wp_customize, 'ou_stat4_num', 'ou_stats', 'Stat 4 Number', '60+' );
+    _ou_text( $wp_customize, 'ou_stat4_lbl', 'ou_stats', 'Stat 4 Label',  'Happy Clients' );
 
     /* ── Contact ───────────────────────────────────── */
     $wp_customize->add_section( 'ou_contact', array( 'title' => 'Contact', 'priority' => 50 ) );
-    _ax_text( $wp_customize, 'ou_contact_h',   'ou_contact', 'Heading',       "Let's work." );
-    _ax_textarea( $wp_customize, 'ou_contact_t','ou_contact', 'Subtext',
+    _ou_text( $wp_customize, 'ou_contact_h',   'ou_contact', 'Heading',       "Let's work." );
+    _ou_textarea( $wp_customize, 'ou_contact_t','ou_contact', 'Subtext',
         'Available for select projects. Get in touch.' );
-    _ax_text( $wp_customize, 'ou_email',        'ou_contact', 'Email',         'hello@yoursite.com' );
-    _ax_text( $wp_customize, 'ou_instagram',    'ou_contact', 'Instagram URL', '' );
-    _ax_text( $wp_customize, 'ou_behance',      'ou_contact', 'Behance URL',   '' );
-    _ax_text( $wp_customize, 'ou_linkedin',     'ou_contact', 'LinkedIn URL',  '' );
-    _ax_text( $wp_customize, 'ou_vimeo',        'ou_contact', 'Vimeo URL',     '' );
+    _ou_text( $wp_customize, 'ou_email',        'ou_contact', 'Email',         'hello@yoursite.com' );
+    _ou_text( $wp_customize, 'ou_instagram',    'ou_contact', 'Instagram URL', '' );
+    _ou_text( $wp_customize, 'ou_behance',      'ou_contact', 'Behance URL',   '' );
+    _ou_text( $wp_customize, 'ou_linkedin',     'ou_contact', 'LinkedIn URL',  '' );
+    _ou_text( $wp_customize, 'ou_vimeo',        'ou_contact', 'Vimeo URL',     '' );
 }
 add_action( 'customize_register', 'ou_customizer' );
 
-function _ax_text( $c, $id, $sec, $label, $default = '' ) {
+function _ou_text( $c, $id, $sec, $label, $default = '' ) {
     $c->add_setting( $id, array( 'default' => $default, 'sanitize_callback' => 'sanitize_text_field' ) );
     $c->add_control( $id, array( 'label' => $label, 'section' => $sec, 'type' => 'text' ) );
 }
 
-function _ax_textarea( $c, $id, $sec, $label, $default = '' ) {
+function _ou_textarea( $c, $id, $sec, $label, $default = '' ) {
     $c->add_setting( $id, array( 'default' => $default, 'sanitize_callback' => 'sanitize_textarea_field' ) );
     $c->add_control( $id, array( 'label' => $label, 'section' => $sec, 'type' => 'textarea' ) );
 }
 
 /* ── Helper ────────────────────────────────────────── */
-function ax( $key, $fallback = '' ) {
+function ou( $key, $fallback = '' ) {
     return get_theme_mod( $key, $fallback ) ?: $fallback;
 }
 
