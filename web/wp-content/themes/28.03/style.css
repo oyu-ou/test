@@ -1,0 +1,20 @@
+/*
+Theme Name:  28.03
+Theme URI:   https://yoursite.com
+Author:      Your Name
+Description: Experimental high-end portfolio. Two modes: CLEAN (editorial list) and WILD (cinematic slider). B&W only with accent inversion. Inspired by voku.studio, Cathy Dolle, Corentin Bernadou, Telha Clarke, Cargo.
+Version:     1.0.0
+License:     GNU General Public License v2 or later
+Text Domain: axiom
+Tags:        portfolio, minimal, experimental, dark, animation
+
+CUSTOMIZATION MAP
+─────────────────
+→ COLORS      assets/css/variables.css   --accent-dark / --accent-light
+→ FONTS       assets/css/variables.css   --font-display / --font-body
+→ FONT IMPORT functions.php              "REPLACE: font import"
+→ LOGO        header.php                 "REPLACE: logo"
+→ HERO VIDEO  Customizer → Hero          or front-page.php "REPLACE: video"
+→ YOUR NAME   Customizer → Identity
+→ NAV LINKS   footer.php                 <nav> block
+*/

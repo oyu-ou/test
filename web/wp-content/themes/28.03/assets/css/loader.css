@@ -1,0 +1,135 @@
+/* ═══════════════════════════════════════════════════
+   AXIOM — loader.css + cursor.css + grain
+   ═══════════════════════════════════════════════════ */
+
+/* ── LOADER ───────────────────────────────────────── */
+#axiom-loader {
+  position: fixed; inset: 0;
+  z-index: var(--z-loader);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: var(--pad-x);
+  padding-bottom: calc(var(--nav-h) + 48px);
+  pointer-events: all;
+  transition: opacity 0.7s var(--ease-out), visibility 0.7s;
+}
+
+#axiom-loader.done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader__num {
+  font-size: var(--sz-hero);
+  font-weight: var(--w-thin);
+  letter-spacing: var(--ls-tight);
+  line-height: 1;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+}
+
+.loader__num-inner {
+  display: block;
+}
+
+.loader__foot {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loader__site-name {
+  font-family: var(--font-mono);
+  font-size: var(--sz-xs);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--fg-mid);
+}
+
+.loader__bar-wrap {
+  width: 100px; height: 1px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.loader__bar {
+  height: 100%;
+  background: var(--fg);
+  width: 0%;
+  transition: width 0.08s linear;
+}
+
+/* ── GRAIN CANVAS ─────────────────────────────────── */
+#grain-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  pointer-events: none;
+  opacity: var(--grain);
+  mix-blend-mode: overlay;
+  width: 100vw;
+  height: 100vh;
+  transition: opacity var(--t-slow);
+}
+
+/* ── CUSTOM CURSOR ────────────────────────────────── */
+/* No mix-blend-mode — cursor must be visible on BOTH dark and light themes */
+@media (hover: none) { .ax-cursor { display: none !important; } }
+
+.ax-cursor {
+  position: fixed;
+  top: 0; left: 0;
+  z-index: var(--z-cursor);
+  pointer-events: none;
+  /* NO mix-blend-mode here — it made white cursor invisible on white bg */
+}
+
+.ax-cursor__dot {
+  position: absolute;
+  width: 8px; height: 8px;
+  background: var(--fg);           /* black on light, white on dark */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s var(--ease-out),
+              height 0.25s var(--ease-out),
+              background 0.2s,
+              border-radius 0.25s;
+}
+
+.ax-cursor__ring {
+  position: absolute;
+  width: 36px; height: 36px;
+  border: 1.5px solid var(--fg);   /* black ring on light, white ring on dark */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  transition: width 0.4s var(--ease-out),
+              height 0.4s var(--ease-out),
+              border-color 0.2s,
+              opacity 0.3s,
+              border-radius 0.3s;
+}
+
+/* Link hover — accent fill */
+body.cur-link .ax-cursor__dot  {
+  width: 46px; height: 46px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+body.cur-link .ax-cursor__ring { opacity: 0; }
+
+/* Text cursor */
+body.cur-text .ax-cursor__dot  { width: 2px; height: 26px; border-radius: 1px; }
+body.cur-text .ax-cursor__ring { opacity: 0; }
+
+/* Click feedback */
+.ax-cursor.clicking .ax-cursor__dot {
+  transform: translate(-50%,-50%) scale(0.6);
+}

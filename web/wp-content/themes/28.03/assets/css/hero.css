@@ -1,0 +1,182 @@
+/* ═══════════════════════════════════════════════════
+   AXIOM — hero.css
+   Full-viewport editorial intro
+   ═══════════════════════════════════════════════════ */
+
+#ax-hero {
+  position: relative;
+  width: 100%;
+  height: 100svh;
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--pad-x);
+  padding-bottom: calc(var(--nav-h) + 48px);
+  overflow: hidden;
+}
+
+/* ── Background video ─────────────────────────────── */
+/* REPLACE: video — set URL in Customizer → Hero Section */
+.hero__video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.hero__video-bg video {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s var(--ease-out);
+}
+
+.hero__video-bg video.loaded { opacity: 0.55; }
+
+[data-theme="light"] .hero__video-bg video.loaded { opacity: 0.35; }
+
+/* ── Content ──────────────────────────────────────── */
+.hero__content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Status row — top of hero */
+.hero__status {
+  position: absolute;
+  top: calc(var(--nav-h) + 12px); /* below topbar */
+  left: var(--pad-x);
+  right: var(--pad-x);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.hero__edition {
+  font-family: var(--font-mono);
+  font-size: var(--sz-xs);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--fg-mid);
+  line-height: 1.6;
+}
+
+.hero__availability {
+  font-family: var(--font-mono);
+  font-size: var(--sz-xs);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--fg-mid);
+  text-align: right;
+}
+
+.hero__avail-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-right: 7px;
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* ── Main name / title ────────────────────────────── */
+.hero__name {
+  font-size: var(--sz-hero);
+  font-weight: var(--w-thin);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+  color: var(--fg);
+  margin-bottom: 24px;
+
+  /* Entry animation */
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity var(--t-xslow) var(--ease-out),
+              transform var(--t-xslow) var(--ease-out);
+}
+
+.hero__name.in { opacity: 1; transform: none; }
+
+/* ── Discipline row ───────────────────────────────── */
+.hero__disciplines {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--t-xslow) var(--ease-out) 0.2s,
+              transform var(--t-xslow) var(--ease-out) 0.2s;
+}
+
+.hero__disciplines.in { opacity: 1; transform: none; }
+
+.hero__disc {
+  font-family: var(--font-mono);
+  font-size: var(--sz-xs);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--fg-mid);
+}
+
+.hero__disc + .hero__disc::before {
+  content: '·';
+  margin-right: 20px;
+  opacity: 0.4;
+}
+
+/* ── Scroll cue ───────────────────────────────────── */
+.hero__scroll {
+  position: absolute;
+  bottom: calc(var(--nav-h) + 24px);
+  right: var(--pad-x);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity var(--t-slow) 1s;
+}
+
+.hero__scroll.in { opacity: 1; }
+
+.hero__scroll-label {
+  font-family: var(--font-mono);
+  font-size: var(--sz-2xs);
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: var(--fg-low);
+  writing-mode: vertical-rl;
+}
+
+.hero__scroll-line {
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, var(--fg-low), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%,100% { transform: scaleY(1); opacity: 0.5; }
+  50%      { transform: scaleY(0.6); opacity: 1; }
+}
+
+/* ── Parallax will-change hint ─────────────────── */
+.hero__content,
+/* ── Hero section top padding (clears fixed topbar) ─ */
+#ax-hero {
+  padding-top: 0; /* hero is full-height, status row is absolute-positioned */
+}
+
+/* ── Light mode hero text colours ──────────────── */
+[data-theme="light"] .hero__name { color: #fff; }
+[data-theme="light"] .hero__disc { color: rgba(255,255,255,0.6); }
+[data-theme="light"] .hero__scroll-label { color: rgba(255,255,255,0.5); }
+
+/* ── Hero section no-video background ──────────── */
+#ax-hero:not(:has(video)) .hero__content { text-shadow: none; }

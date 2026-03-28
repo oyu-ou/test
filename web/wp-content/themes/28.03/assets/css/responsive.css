@@ -1,0 +1,32 @@
+/* ═══════════════════════════════════════════════════
+   AXIOM — responsive.css
+   ═══════════════════════════════════════════════════ */
+
+@media (max-width: 1100px) {
+  .clean__item { gap: 0 18px; }
+}
+
+@media (max-width: 768px) {
+  :root { --pad-x: 24px; }
+  #ax-about  { grid-template-columns: 1fr; }
+  .contact__grid { grid-template-columns: 1fr; }
+  .contact__links { align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  :root { --pad-x: 16px; }
+  .hero__availability { display: none; }
+  .topbar__right { gap: 4px; }
+  .ax-toggle { padding: 5px 10px; font-size: 9px; }
+}
+
+/* ── Reduced motion ───────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,*::before,*::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  [data-reveal]        { opacity: 1 !important; transform: none !important; }
+  .clip-inner          { transform: none !important; }
+  .wild__title-inner   { transform: none !important; }
+}

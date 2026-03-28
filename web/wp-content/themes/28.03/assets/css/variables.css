@@ -1,0 +1,112 @@
+/* ═══════════════════════════════════════════════════
+   AXIOM — variables.css
+   Single source of truth for every design token.
+   Edit this file to re-skin the entire theme.
+   ═══════════════════════════════════════════════════ */
+
+/* ── Dark mode (default) ──────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --bg:           #000000;
+  --fg:           #ffffff;
+  --fg-mid:       rgba(255,255,255,0.5);
+  --fg-low:       rgba(255,255,255,0.18);
+  --fg-lower:     rgba(255,255,255,0.07);
+  --border:       rgba(255,255,255,0.1);
+  --border-hi:    rgba(255,255,255,0.35);
+
+  /* REPLACE: accent — yellow on black */
+  --accent:       #FFD600;
+  --accent-rgb:   255, 214, 0;
+  --accent-dim:   rgba(255,214,0,0.15);
+
+  --nav-bg:       rgba(0,0,0,0.9);
+  --grain:        0.06;
+  --overlay:      rgba(0,0,0,0.55);
+  --overlay-hard: rgba(0,0,0,0.82);
+}
+
+/* ── Light mode ───────────────────────────────────── */
+[data-theme="light"] {
+  --bg:           #ffffff;
+  --fg:           #000000;
+  --fg-mid:       rgba(0,0,0,0.45);
+  --fg-low:       rgba(0,0,0,0.15);
+  --fg-lower:     rgba(0,0,0,0.06);
+  --border:       rgba(0,0,0,0.09);
+  --border-hi:    rgba(0,0,0,0.4);
+
+  /* REPLACE: accent — blue on white */
+  --accent:       #0057FF;
+  --accent-rgb:   0, 87, 255;
+  --accent-dim:   rgba(0,87,255,0.1);
+
+  --nav-bg:       rgba(255,255,255,0.92);
+  --grain:        0.025;
+  --overlay:      rgba(255,255,255,0.4);
+  --overlay-hard: rgba(255,255,255,0.88);
+}
+
+/* ── Typography ───────────────────────────────────── */
+:root {
+  /* REPLACE: fonts — swap these two vars in one place */
+  --font-display: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --font-body:    "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --font-mono:    "Courier New", "Courier", monospace;
+
+  /* Scale */
+  --sz-2xs:  0.5rem;    /*  8px */
+  --sz-xs:   0.625rem;  /* 10px */
+  --sz-sm:   0.75rem;   /* 12px */
+  --sz-base: 0.875rem;  /* 14px */
+  --sz-md:   1rem;      /* 16px */
+  --sz-lg:   1.25rem;   /* 20px */
+  --sz-xl:   1.75rem;   /* 28px */
+  --sz-2xl:  clamp(2rem,   4vw, 3.5rem);
+  --sz-3xl:  clamp(3rem,   7vw, 6rem);
+  --sz-hero: clamp(4.5rem, 12vw, 12rem);
+
+  /* Weight */
+  --w-thin:   200;
+  --w-light:  300;
+  --w-reg:    400;
+  --w-mid:    500;
+  --w-bold:   700;
+
+  /* Leading */
+  --lh-tight:  0.92;
+  --lh-snug:   1.1;
+  --lh-normal: 1.5;
+  --lh-loose:  1.8;
+
+  /* Tracking */
+  --ls-tight:   -0.04em;
+  --ls-none:     0;
+  --ls-wide:     0.08em;
+  --ls-wider:    0.15em;
+  --ls-widest:   0.28em;
+
+  /* ── Layout ─────────────────────────────────────── */
+  --nav-h:     52px;
+  --pad-x:     clamp(20px, 4.5vw, 72px);
+  --pad-y:     clamp(60px, 10vw, 140px);
+  --gap:       1px;   /* grid gap between items */
+
+  /* ── Motion ─────────────────────────────────────── */
+  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-io:     cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-sharp:  cubic-bezier(0.4, 0, 0.2, 1);
+  --t-fast:      0.18s;
+  --t-base:      0.45s;
+  --t-slow:      0.85s;
+  --t-xslow:     1.3s;
+
+  /* ── Z-index stack ──────────────────────────────── */
+  --z-bg:      -1;
+  --z-base:     1;
+  --z-above:    10;
+  --z-overlay:  50;
+  --z-nav:      100;
+  --z-cursor:   200;
+  --z-loader:   300;
+}
