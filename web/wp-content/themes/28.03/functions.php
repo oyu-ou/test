@@ -38,7 +38,7 @@ function ou_enqueue() {
         array(), null );
 
     /* CSS modules — order matters */
-    $css = array( 'variables','base','loader','nav','hero','clean','wild','responsive' );
+    $css = array( 'variables','base','loader','nav','hero','clean','wild','responsive','single','archive','404' );
     $dep = array( 'ou-fonts' );
     foreach ( $css as $mod ) {
         wp_enqueue_style( "ou-{$mod}", "{$uri}/assets/css/{$mod}.css", $dep, $v );
