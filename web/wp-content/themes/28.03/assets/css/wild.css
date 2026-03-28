@@ -1,11 +1,11 @@
 /* ═══════════════════════════════════════════════════
-   AXIOM — wild.css
+   ou — wild.css
    WILD MODE: fullscreen draggable cinematic slider.
    Inspired by voku.studio + Cathy Dolle
    ═══════════════════════════════════════════════════ */
 
 /* ── Outer container ──────────────────────────────── */
-#ax-wild {
+#ou-wild {
   position: fixed;
   inset: 0;
   z-index: var(--z-above);
@@ -19,7 +19,7 @@
   transition: opacity var(--t-slow) var(--ease-out);
 }
 
-html[data-mode="wild"] #ax-wild {
+html[data-mode="wild"] #ou-wild {
   display: block;
   opacity: 1;
   pointer-events: all;
@@ -368,11 +368,11 @@ html[data-mode="wild"] #ax-wild {
 }
 
 /* ── Drag feedback ────────────────────────────────── */
-#ax-wild.is-dragging .wild__track {
+#ou-wild.is-dragging .wild__track {
   transition: none;
 }
 
-#ax-wild.is-dragging { cursor: grab; }
+#ou-wild.is-dragging { cursor: grab; }
 
 /* ── No projects in category ──────────────────────── */
 .wild__no-results {

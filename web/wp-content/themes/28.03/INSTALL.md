@@ -1,11 +1,11 @@
-# AXIOM — WordPress Portfolio Theme
+# ou — WordPress Portfolio Theme
 ### Setup & Customization Guide
 
 ---
 
 ## Quick Install
 
-1. Upload `axiom-theme.zip` via **WP Admin → Appearance → Themes → Add New → Upload Theme**
+1. Upload `ou-theme.zip` via **WP Admin → Appearance → Themes → Add New → Upload Theme**
 2. **Activate** the theme
 3. **Settings → Reading** → "Your homepage displays" → Static page → select any page as Homepage
 4. **Appearance → Customize** to fill in all content
@@ -16,7 +16,7 @@
 ## File Structure
 
 ```
-axiom-theme/
+ou-theme/
 ├── style.css               ← WP theme header (metadata only)
 ├── functions.php           ← Setup, CPT, enqueues, customizer, data helper
 ├── header.php              ← Loader, topbar (logo + toggles), wild slider shell
@@ -115,11 +115,11 @@ Compress with HandBrake: CRF 26–28, web-optimized.
 **Step 1 — Change Google Fonts import in `functions.php`:**
 ```php
 // Current (Inter):
-wp_enqueue_style( 'axiom-fonts',
+wp_enqueue_style( 'ou-fonts',
     'https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap', ...);
 
 // Example — switch to Neue Montreal or similar:
-wp_enqueue_style( 'axiom-fonts',
+wp_enqueue_style( 'ou-fonts',
     'https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400&display=swap', ...);
 ```
 
@@ -141,7 +141,7 @@ wp_enqueue_style( 'axiom-fonts',
 --font-display: "Alte Haas Grotesk", sans-serif;
 --font-body:    "Alte Haas Grotesk", sans-serif;
 ```
-Place `.woff2` files in `axiom-theme/assets/fonts/`.
+Place `.woff2` files in `ou-theme/assets/fonts/`.
 
 ---
 
@@ -186,11 +186,11 @@ Each link has two attributes:
    | Description | Post body (editor) |
    | Featured Image | Used as slider bg + hover preview + single hero |
    | **Project Type** (taxonomy) | Sidebar → determines which nav filter shows it |
-   | Year | Custom Fields → `axiom_year` |
-   | Client | Custom Fields → `axiom_client` |
-   | Role | Custom Fields → `axiom_role` |
-   | Tools | Custom Fields → `axiom_tools` |
-   | Live URL | Custom Fields → `axiom_url` |
+   | Year | Custom Fields → `ou_year` |
+   | Client | Custom Fields → `ou_client` |
+   | Role | Custom Fields → `ou_role` |
+   | Tools | Custom Fields → `ou_tools` |
+   | Live URL | Custom Fields → `ou_url` |
 3. Set **Order** (Page Attributes → Order) to control display sequence
 4. Publish
 

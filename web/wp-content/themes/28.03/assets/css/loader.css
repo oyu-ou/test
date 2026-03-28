@@ -1,9 +1,9 @@
 /* ═══════════════════════════════════════════════════
-   AXIOM — loader.css + cursor.css + grain
+   ou — loader.css + cursor.css + grain
    ═══════════════════════════════════════════════════ */
 
 /* ── LOADER ───────────────────────────────────────── */
-#axiom-loader {
+#ou-loader {
   position: fixed; inset: 0;
   z-index: var(--z-loader);
   background: var(--bg);
@@ -17,7 +17,7 @@
   transition: opacity 0.7s var(--ease-out), visibility 0.7s;
 }
 
-#axiom-loader.done {
+#ou-loader.done {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;

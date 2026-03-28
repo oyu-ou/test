@@ -1,6 +1,6 @@
 <?php
 /**
- * AXIOM — single.php (v2)
+ * ou — single.php (v2)
  * Full cinematic single-project layout.
  * Every section has dummy content fallbacks so the page
  * never looks empty even before real data is entered.
@@ -10,11 +10,11 @@ while ( have_posts() ) : the_post();
 
 $is_port  = ( get_post_type() === 'portfolio' );
 $pid      = get_the_ID();
-$url      = get_post_meta( $pid, 'axiom_url',    true );
-$year     = get_post_meta( $pid, 'axiom_year',   true ) ?: date('Y');
-$client   = get_post_meta( $pid, 'axiom_client', true ) ?: 'Confidential';
-$role     = get_post_meta( $pid, 'axiom_role',   true ) ?: 'Design, Direction';
-$tools    = get_post_meta( $pid, 'axiom_tools',  true ) ?: 'Figma, CSS, After Effects';
+$url      = get_post_meta( $pid, 'ou_url',    true );
+$year     = get_post_meta( $pid, 'ou_year',   true ) ?: date('Y');
+$client   = get_post_meta( $pid, 'ou_client', true ) ?: 'Confidential';
+$role     = get_post_meta( $pid, 'ou_role',   true ) ?: 'Design, Direction';
+$tools    = get_post_meta( $pid, 'ou_tools',  true ) ?: 'Figma, CSS, After Effects';
 $terms    = get_the_terms( $pid, 'project_type' );
 $cat      = $terms ? $terms[0]->name : 'Design';
 $cat_slug = $terms ? strtolower($terms[0]->slug) : 'graphic';
@@ -569,7 +569,7 @@ $has_thumb    = has_post_thumbnail();
     var h = document.getElementById('sp-hero-section');
     if(h) setTimeout(function(){ h.classList.add('in'); }, 200);
   }
-  var loader = document.getElementById('axiom-loader');
+  var loader = document.getElementById('ou-loader');
   if(loader){
     loader.addEventListener('transitionend', trigger, {once:true});
     setTimeout(trigger, 2200); /* fallback */

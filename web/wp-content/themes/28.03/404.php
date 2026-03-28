@@ -1,6 +1,6 @@
 <?php
 /**
- * AXIOM — 404.php
+ * ou — 404.php
  * Animated not-found page. Big 404 ghost number + editorial layout.
  */
 get_header(); ?>

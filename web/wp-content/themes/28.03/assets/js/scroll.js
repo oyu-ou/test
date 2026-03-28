@@ -1,5 +1,5 @@
 /**
- * AXIOM — scroll.js
+ * ou — scroll.js
  * Loader · scroll reveals · list reveals · parallax ·
  * nav tracking · smooth scroll · hero video · mobile nav · preview image
  */
@@ -8,7 +8,7 @@
 
   /* ── 1. LOADER ───────────────────────────────────── */
   function initLoader() {
-    var loader = document.getElementById('axiom-loader');
+    var loader = document.getElementById('ou-loader');
     if (!loader) return;
 
     var bar   = loader.querySelector('.loader__bar');
@@ -223,8 +223,8 @@
   }
 
   /* ── RE-INIT REVEALS after mode/filter change ────── */
-  document.addEventListener('axiom:mode',   initReveal);
-  document.addEventListener('axiom:filter', function () {
+  document.addEventListener('ou:mode',   initReveal);
+  document.addEventListener('ou:filter', function () {
     setTimeout(initListReveals, 100);
   });
 

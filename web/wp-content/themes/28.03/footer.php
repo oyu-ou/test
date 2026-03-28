@@ -54,7 +54,7 @@
 
     <!-- Right meta: location -->
     <div class="nav__right t-mono">
-      <?php echo esc_html( ax('axiom_location','Remote / Global') ); ?>
+      <?php echo esc_html( ax('ou_location','Remote / Global') ); ?>
     </div>
 
     <!-- Mobile hamburger -->

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════
-   AXIOM — clean.css
+   ou — clean.css
    CLEAN MODE: editorial numbered project list.
    Inspired by Corentin Bernadou + cargo.site
    ═══════════════════════════════════════════════════ */
@@ -12,7 +12,7 @@
 }
 
 html[data-mode="wild"] #ax-clean  { display: none; }
-html[data-mode="clean"] #ax-wild  { display: none; }
+html[data-mode="clean"] #ou-wild  { display: none; }
 
 /* ── Work section header ──────────────────────────── */
 .clean__header {

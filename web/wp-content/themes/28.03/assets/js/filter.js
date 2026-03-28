@@ -1,5 +1,5 @@
 /**
- * AXIOM — filter.js
+ * ou — filter.js
  * Category filtering via nav links.
  * Nav: About(all) · Web · Video · Photo · Graphic · Contact
  * "about" and "contact" scroll only — don't filter projects.
@@ -41,7 +41,7 @@
 
   /* ── Notify slider of filter change ──────────────── */
   function filterWild(filter) {
-    document.dispatchEvent(new CustomEvent('axiom:filter', { detail: { filter: filter } }));
+    document.dispatchEvent(new CustomEvent('ou:filter', { detail: { filter: filter } }));
   }
 
   /* ── Apply filter ─────────────────────────────────── */

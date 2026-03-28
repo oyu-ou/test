@@ -1,10 +1,10 @@
 /* ═══════════════════════════════════════════════════
-   AXIOM — nav.css
+   ou — nav.css
    Top bar (controls) + bottom navigation
    ═══════════════════════════════════════════════════ */
 
 /* ── TOP BAR ──────────────────────────────────────── */
-#ax-topbar {
+#ou-topbar {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: var(--z-nav);

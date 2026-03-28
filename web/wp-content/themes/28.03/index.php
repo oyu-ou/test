@@ -1,6 +1,6 @@
 <?php
 /**
- * AXIOM — index.php
+ * ou — index.php
  * Archive, blog, search, and category fallback.
  * Matches the clean editorial aesthetic of the homepage list.
  */

@@ -1,14 +1,14 @@
 <?php
 /**
- * AXIOM Theme — functions.php
+ * ou Theme — functions.php
  */
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /* ═══════════════════════════════════════════════════
    SETUP
    ═══════════════════════════════════════════════════ */
-function axiom_setup() {
-    load_theme_textdomain( 'axiom', get_template_directory() . '/languages' );
+function ou_setup() {
+    load_theme_textdomain( 'ou', get_template_directory() . '/languages' );
     add_theme_support( 'title-tag' );
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'html5', array( 'search-form','comment-form','comment-list','gallery','caption' ) );
@@ -20,51 +20,51 @@ function axiom_setup() {
     add_image_size( 'project-preview', 480,  320, true );
 
     register_nav_menus( array(
-        'primary' => __( 'Primary Nav', 'axiom' ),
+        'primary' => __( 'Primary Nav', 'ou' ),
     ) );
 }
-add_action( 'after_setup_theme', 'axiom_setup' );
+add_action( 'after_setup_theme', 'ou_setup' );
 
 /* ═══════════════════════════════════════════════════
    ENQUEUE
    ═══════════════════════════════════════════════════ */
-function axiom_enqueue() {
+function ou_enqueue() {
     $v   = '1.0.0';
     $uri = get_template_directory_uri();
 
     /* REPLACE: font import — swap Google Fonts URL or add @font-face */
-    wp_enqueue_style( 'axiom-fonts',
+    wp_enqueue_style( 'ou-fonts',
         'https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400&display=swap',
         array(), null );
 
     /* CSS modules — order matters */
     $css = array( 'variables','base','loader','nav','hero','clean','wild','responsive' );
-    $dep = array( 'axiom-fonts' );
+    $dep = array( 'ou-fonts' );
     foreach ( $css as $mod ) {
-        wp_enqueue_style( "axiom-{$mod}", "{$uri}/assets/css/{$mod}.css", $dep, $v );
-        $dep = array( "axiom-{$mod}" );
+        wp_enqueue_style( "ou-{$mod}", "{$uri}/assets/css/{$mod}.css", $dep, $v );
+        $dep = array( "ou-{$mod}" );
     }
-    wp_enqueue_style( 'axiom-style', get_stylesheet_uri(), $dep, $v );
+    wp_enqueue_style( 'ou-style', get_stylesheet_uri(), $dep, $v );
 
     /* JS modules */
     $js = array( 'grain','cursor','theme','mode','filter','slider','scroll','main' );
     foreach ( $js as $mod ) {
-        wp_enqueue_script( "axiom-{$mod}", "{$uri}/assets/js/{$mod}.js", array(), $v, true );
+        wp_enqueue_script( "ou-{$mod}", "{$uri}/assets/js/{$mod}.js", array(), $v, true );
     }
 
     /* Pass PHP data to JS — project list for the slider */
-    wp_localize_script( 'axiom-main', 'axiomData', array(
-        'projects' => axiom_get_projects_data(),
+    wp_localize_script( 'ou-main', 'ouData', array(
+        'projects' => ou_get_projects_data(),
         'siteUrl'  => home_url('/'),
         'ajaxUrl'  => admin_url('admin-ajax.php'),
     ) );
 }
-add_action( 'wp_enqueue_scripts', 'axiom_enqueue' );
+add_action( 'wp_enqueue_scripts', 'ou_enqueue' );
 
 /* ═══════════════════════════════════════════════════
    PROJECT DATA FOR JS SLIDER
    ═══════════════════════════════════════════════════ */
-function axiom_get_projects_data() {
+function ou_get_projects_data() {
     $q = new WP_Query( array(
         'post_type'      => 'portfolio',
         'posts_per_page' => -1,
@@ -81,7 +81,7 @@ function axiom_get_projects_data() {
             $id    = get_the_ID();
             $terms = get_the_terms( $id, 'project_type' );
             $cat   = $terms ? strtolower( $terms[0]->slug ) : 'all';
-            $year  = get_post_meta( $id, 'axiom_year', true );
+            $year  = get_post_meta( $id, 'ou_year', true );
             $thumb = get_the_post_thumbnail_url( $id, 'project-hero' );
             $prev  = get_the_post_thumbnail_url( $id, 'project-preview' );
             $out[] = array(
@@ -128,7 +128,7 @@ function axiom_get_projects_data() {
 /* ═══════════════════════════════════════════════════
    CUSTOM POST TYPE: portfolio
    ═══════════════════════════════════════════════════ */
-function axiom_register_cpt() {
+function ou_register_cpt() {
     register_post_type( 'portfolio', array(
         'labels'         => array(
             'name'               => 'Portfolio',
@@ -158,16 +158,16 @@ function axiom_register_cpt() {
         'show_admin_column' => true,
     ) );
 }
-add_action( 'init', 'axiom_register_cpt' );
+add_action( 'init', 'ou_register_cpt' );
 
 /* Meta fields */
-function axiom_register_meta() {
+function ou_register_meta() {
     $fields = array(
-        'axiom_url'    => 'Live URL',
-        'axiom_year'   => 'Year',
-        'axiom_client' => 'Client',
-        'axiom_role'   => 'Role (comma-separated)',
-        'axiom_tools'  => 'Tools (comma-separated)',
+        'ou_url'    => 'Live URL',
+        'ou_year'   => 'Year',
+        'ou_client' => 'Client',
+        'ou_role'   => 'Role (comma-separated)',
+        'ou_tools'  => 'Tools (comma-separated)',
     );
     foreach ( $fields as $key => $label ) {
         register_post_meta( 'portfolio', $key, array(
@@ -178,70 +178,70 @@ function axiom_register_meta() {
         ) );
     }
 }
-add_action( 'init', 'axiom_register_meta' );
+add_action( 'init', 'ou_register_meta' );
 
 /* ═══════════════════════════════════════════════════
    CUSTOMIZER
    ═══════════════════════════════════════════════════ */
-function axiom_customizer( $wp_customize ) {
+function ou_customizer( $wp_customize ) {
 
     /* ── Identity ──────────────────────────────────── */
-    $wp_customize->add_section( 'axiom_id', array( 'title' => 'Site Identity', 'priority' => 20 ) );
-    _ax_text( $wp_customize, 'axiom_name',      'axiom_id', 'Your Name / Studio',          get_bloginfo('name') );
-    _ax_text( $wp_customize, 'axiom_tagline',   'axiom_id', 'One-line tagline',             '' );
-    _ax_text( $wp_customize, 'axiom_available', 'axiom_id', 'Availability text',           'Available for new projects' );
-    _ax_text( $wp_customize, 'axiom_edition',   'axiom_id', 'Edition label (e.g. Issue N°003)', 'Issue N°001' );
-    _ax_text( $wp_customize, 'axiom_location',  'axiom_id', 'Location',                    'Remote / Global' );
+    $wp_customize->add_section( 'ou_id', array( 'title' => 'Site Identity', 'priority' => 20 ) );
+    _ax_text( $wp_customize, 'ou_name',      'ou_id', 'Your Name / Studio',          get_bloginfo('name') );
+    _ax_text( $wp_customize, 'ou_tagline',   'ou_id', 'One-line tagline',             '' );
+    _ax_text( $wp_customize, 'ou_available', 'ou_id', 'Availability text',           'Available for new projects' );
+    _ax_text( $wp_customize, 'ou_edition',   'ou_id', 'Edition label (e.g. Issue N°003)', 'Issue N°001' );
+    _ax_text( $wp_customize, 'ou_location',  'ou_id', 'Location',                    'Remote / Global' );
 
     /* ── Hero ──────────────────────────────────────── */
-    $wp_customize->add_section( 'axiom_hero', array( 'title' => 'Hero Section', 'priority' => 30 ) );
+    $wp_customize->add_section( 'ou_hero', array( 'title' => 'Hero Section', 'priority' => 30 ) );
     /* REPLACE: video — upload mp4 to Media, paste URL here */
-    $wp_customize->add_setting( 'axiom_video', array( 'default' => '', 'sanitize_callback' => 'esc_url_raw' ) );
-    $wp_customize->add_control( 'axiom_video', array(
+    $wp_customize->add_setting( 'ou_video', array( 'default' => '', 'sanitize_callback' => 'esc_url_raw' ) );
+    $wp_customize->add_control( 'ou_video', array(
         'label'       => 'Hero Video URL (.mp4) — REPLACE: video',
         'description' => 'Upload mp4 to Media Library, paste URL here.',
-        'section'     => 'axiom_hero', 'type' => 'url',
+        'section'     => 'ou_hero', 'type' => 'url',
     ) );
-    _ax_text( $wp_customize, 'axiom_disc1', 'axiom_hero', 'Discipline 1', 'Web Design' );
-    _ax_text( $wp_customize, 'axiom_disc2', 'axiom_hero', 'Discipline 2', 'Video' );
-    _ax_text( $wp_customize, 'axiom_disc3', 'axiom_hero', 'Discipline 3', 'Photography' );
-    _ax_text( $wp_customize, 'axiom_disc4', 'axiom_hero', 'Discipline 4', 'Graphic Design' );
+    _ax_text( $wp_customize, 'ou_disc1', 'ou_hero', 'Discipline 1', 'Web Design' );
+    _ax_text( $wp_customize, 'ou_disc2', 'ou_hero', 'Discipline 2', 'Video' );
+    _ax_text( $wp_customize, 'ou_disc3', 'ou_hero', 'Discipline 3', 'Photography' );
+    _ax_text( $wp_customize, 'ou_disc4', 'ou_hero', 'Discipline 4', 'Graphic Design' );
 
     /* ── About ─────────────────────────────────────── */
-    $wp_customize->add_section( 'axiom_about', array( 'title' => 'About Section', 'priority' => 40 ) );
-    _ax_text(     $wp_customize, 'axiom_about_h1',   'axiom_about', 'Heading line 1', 'Making things' );
-    _ax_text(     $wp_customize, 'axiom_about_h2',   'axiom_about', 'Heading line 2', 'that matter.' );
-    _ax_textarea( $wp_customize, 'axiom_about_text', 'axiom_about', 'Body text',
+    $wp_customize->add_section( 'ou_about', array( 'title' => 'About Section', 'priority' => 40 ) );
+    _ax_text(     $wp_customize, 'ou_about_h1',   'ou_about', 'Heading line 1', 'Making things' );
+    _ax_text(     $wp_customize, 'ou_about_h2',   'ou_about', 'Heading line 2', 'that matter.' );
+    _ax_textarea( $wp_customize, 'ou_about_text', 'ou_about', 'Body text',
         'I design and build digital experiences for brands with something to say. Based globally, working globally.' );
-    _ax_text( $wp_customize, 'axiom_tag1', 'axiom_about', 'Tag 1', 'Web Design' );
-    _ax_text( $wp_customize, 'axiom_tag2', 'axiom_about', 'Tag 2', 'Video' );
-    _ax_text( $wp_customize, 'axiom_tag3', 'axiom_about', 'Tag 3', 'Photography' );
-    _ax_text( $wp_customize, 'axiom_tag4', 'axiom_about', 'Tag 4', 'Graphic Design' );
-    _ax_text( $wp_customize, 'axiom_tag5', 'axiom_about', 'Tag 5', 'Art Direction' );
+    _ax_text( $wp_customize, 'ou_tag1', 'ou_about', 'Tag 1', 'Web Design' );
+    _ax_text( $wp_customize, 'ou_tag2', 'ou_about', 'Tag 2', 'Video' );
+    _ax_text( $wp_customize, 'ou_tag3', 'ou_about', 'Tag 3', 'Photography' );
+    _ax_text( $wp_customize, 'ou_tag4', 'ou_about', 'Tag 4', 'Graphic Design' );
+    _ax_text( $wp_customize, 'ou_tag5', 'ou_about', 'Tag 5', 'Art Direction' );
 
     /* ── Stats ────────────────────────────────────────── */
-    $wp_customize->add_section( 'axiom_stats', array( 'title' => 'Stats Strip', 'priority' => 48 ) );
-    _ax_text( $wp_customize, 'axiom_stat1_num', 'axiom_stats', 'Stat 1 Number', '120+' );
-    _ax_text( $wp_customize, 'axiom_stat1_lbl', 'axiom_stats', 'Stat 1 Label',  'Projects Delivered' );
-    _ax_text( $wp_customize, 'axiom_stat2_num', 'axiom_stats', 'Stat 2 Number', '8' );
-    _ax_text( $wp_customize, 'axiom_stat2_lbl', 'axiom_stats', 'Stat 2 Label',  'Years Active' );
-    _ax_text( $wp_customize, 'axiom_stat3_num', 'axiom_stats', 'Stat 3 Number', '14' );
-    _ax_text( $wp_customize, 'axiom_stat3_lbl', 'axiom_stats', 'Stat 3 Label',  'Awards' );
-    _ax_text( $wp_customize, 'axiom_stat4_num', 'axiom_stats', 'Stat 4 Number', '60+' );
-    _ax_text( $wp_customize, 'axiom_stat4_lbl', 'axiom_stats', 'Stat 4 Label',  'Happy Clients' );
+    $wp_customize->add_section( 'ou_stats', array( 'title' => 'Stats Strip', 'priority' => 48 ) );
+    _ax_text( $wp_customize, 'ou_stat1_num', 'ou_stats', 'Stat 1 Number', '120+' );
+    _ax_text( $wp_customize, 'ou_stat1_lbl', 'ou_stats', 'Stat 1 Label',  'Projects Delivered' );
+    _ax_text( $wp_customize, 'ou_stat2_num', 'ou_stats', 'Stat 2 Number', '8' );
+    _ax_text( $wp_customize, 'ou_stat2_lbl', 'ou_stats', 'Stat 2 Label',  'Years Active' );
+    _ax_text( $wp_customize, 'ou_stat3_num', 'ou_stats', 'Stat 3 Number', '14' );
+    _ax_text( $wp_customize, 'ou_stat3_lbl', 'ou_stats', 'Stat 3 Label',  'Awards' );
+    _ax_text( $wp_customize, 'ou_stat4_num', 'ou_stats', 'Stat 4 Number', '60+' );
+    _ax_text( $wp_customize, 'ou_stat4_lbl', 'ou_stats', 'Stat 4 Label',  'Happy Clients' );
 
     /* ── Contact ───────────────────────────────────── */
-    $wp_customize->add_section( 'axiom_contact', array( 'title' => 'Contact', 'priority' => 50 ) );
-    _ax_text( $wp_customize, 'axiom_contact_h',   'axiom_contact', 'Heading',       "Let's work." );
-    _ax_textarea( $wp_customize, 'axiom_contact_t','axiom_contact', 'Subtext',
+    $wp_customize->add_section( 'ou_contact', array( 'title' => 'Contact', 'priority' => 50 ) );
+    _ax_text( $wp_customize, 'ou_contact_h',   'ou_contact', 'Heading',       "Let's work." );
+    _ax_textarea( $wp_customize, 'ou_contact_t','ou_contact', 'Subtext',
         'Available for select projects. Get in touch.' );
-    _ax_text( $wp_customize, 'axiom_email',        'axiom_contact', 'Email',         'hello@yoursite.com' );
-    _ax_text( $wp_customize, 'axiom_instagram',    'axiom_contact', 'Instagram URL', '' );
-    _ax_text( $wp_customize, 'axiom_behance',      'axiom_contact', 'Behance URL',   '' );
-    _ax_text( $wp_customize, 'axiom_linkedin',     'axiom_contact', 'LinkedIn URL',  '' );
-    _ax_text( $wp_customize, 'axiom_vimeo',        'axiom_contact', 'Vimeo URL',     '' );
+    _ax_text( $wp_customize, 'ou_email',        'ou_contact', 'Email',         'hello@yoursite.com' );
+    _ax_text( $wp_customize, 'ou_instagram',    'ou_contact', 'Instagram URL', '' );
+    _ax_text( $wp_customize, 'ou_behance',      'ou_contact', 'Behance URL',   '' );
+    _ax_text( $wp_customize, 'ou_linkedin',     'ou_contact', 'LinkedIn URL',  '' );
+    _ax_text( $wp_customize, 'ou_vimeo',        'ou_contact', 'Vimeo URL',     '' );
 }
-add_action( 'customize_register', 'axiom_customizer' );
+add_action( 'customize_register', 'ou_customizer' );
 
 function _ax_text( $c, $id, $sec, $label, $default = '' ) {
     $c->add_setting( $id, array( 'default' => $default, 'sanitize_callback' => 'sanitize_text_field' ) );
@@ -261,11 +261,11 @@ function ax( $key, $fallback = '' ) {
 /* ═══════════════════════════════════════════════════
    BODY CLASS
    ═══════════════════════════════════════════════════ */
-function axiom_body_class( $classes ) {
-    $classes[] = 'axiom-theme';
+function ou_body_class( $classes ) {
+    $classes[] = 'ou-theme';
     return $classes;
 }
-add_filter( 'body_class', 'axiom_body_class' );
+add_filter( 'body_class', 'ou_body_class' );
 
 /* ═══════════════════════════════════════════════════
    EXCERPT

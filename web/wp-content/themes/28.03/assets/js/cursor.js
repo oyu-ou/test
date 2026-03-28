@@ -1,5 +1,5 @@
 /**
- * AXIOM — cursor.js
+ * ou — cursor.js
  * Two-element cursor: dot (exact follow) + ring (lerp lag).
  * Fully theme-aware — visible on both dark and light backgrounds.
  * Uses event delegation so dynamically added elements work too.

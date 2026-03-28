@@ -8,8 +8,8 @@
 <!-- Apply saved theme + mode immediately to avoid FOUC -->
 <script>
 (function(){
-  var t=localStorage.getItem('axiom-theme');
-  var m=localStorage.getItem('axiom-mode');
+  var t=localStorage.getItem('ou-theme');
+  var m=localStorage.getItem('ou-mode');
   if(t) document.documentElement.setAttribute('data-theme',t);
   if(m) document.documentElement.setAttribute('data-mode',m);
 })();
@@ -18,24 +18,20 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
-<!-- ═══════════════════════════════════════════════════
-     LOADER
-     ═══════════════════════════════════════════════════ -->
-<div id="axiom-loader" role="status" aria-label="Loading">
+<!-- LOADER -->
+<div id="ou-loader" role="status" aria-label="Loading">
   <div class="loader__num"><span class="loader__num-inner">00</span></div>
   <div class="loader__foot">
-    <span class="loader__site-name"><?php echo esc_html( ax('axiom_name', get_bloginfo('name')) ); ?></span>
+    <span class="loader__site-name"><?php echo esc_html( ax('ou_name', get_bloginfo('name')) ); ?></span>
     <div class="loader__bar-wrap"><div class="loader__bar"></div></div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════
-     TOP BAR — logo left · controls right
-     ═══════════════════════════════════════════════════ -->
-<header id="ax-topbar">
+<!-- TOP BAR -->
+<header id="ou-topbar">
 
   <!-- REPLACE: logo — swap SVG below or set custom logo in Customizer → Site Identity -->
-  <a href="<?php echo esc_url( home_url('/') ); ?>" class="topbar__logo" aria-label="<?php echo esc_attr( ax('axiom_name', get_bloginfo('name')) ); ?>">
+  <a href="<?php echo esc_url( home_url('/') ); ?>" class="topbar__logo" aria-label="<?php echo esc_attr( ax('ou_name', get_bloginfo('name')) ); ?>">
     <?php if ( has_custom_logo() ) :
       the_custom_logo();
     else : ?>
@@ -61,11 +57,8 @@
 
 </header>
 
-<!-- ═══════════════════════════════════════════════════
-     WILD MODE — fullscreen slider (always in DOM,
-     hidden via CSS when data-mode="clean")
-     ═══════════════════════════════════════════════════ -->
-<div id="ax-wild" aria-label="Portfolio slider" role="region">
+<!-- WILD MODE -->
+<div id="ou-wild" aria-label="Portfolio slider" role="region">
 
   <!-- Counter -->
   <div class="wild__counter">
@@ -77,7 +70,7 @@
   <!-- Progress dots -->
   <div class="wild__dots" role="tablist" aria-label="Slide navigation"></div>
 
-  <!-- Slide track — populated by slider.js from axiomData.projects -->
+  <!-- Slide track — populated by slider.js from ouData.projects -->
   <div class="wild__track"></div>
 
   <!-- Nav arrows -->
@@ -88,10 +81,7 @@
 
 </div>
 
-<!-- ═══════════════════════════════════════════════════
-     HOVER PREVIEW (clean list mode)
-     ═══════════════════════════════════════════════════ -->
-<!-- Floating hover preview (clean list mode) -->
+<!-- HOVER PREVIEW (clean list mode) -->
 <div id="preview-img" aria-hidden="true">
   <img src="" alt="" loading="lazy">
   <div class="preview__placeholder"></div>

@@ -1,5 +1,5 @@
 /**
- * AXIOM — slider.js
+ * ou — slider.js
  * WILD MODE: fullscreen touch+drag+keyboard slider.
  * Rebuilds on filter change. Handles all transitions.
  */
@@ -149,7 +149,7 @@
   function buildTrack() {
     if (!track) return;
     /* projectData is injected by wp_localize_script in functions.php */
-    var data = (window.axiomData && window.axiomData.projects) ? window.axiomData.projects : [];
+    var data = (window.ouData && window.ouData.projects) ? window.ouData.projects : [];
 
     if (!data.length) {
       var empty = document.createElement('div');
@@ -306,7 +306,7 @@
 
   /* ── Init ─────────────────────────────────────────── */
   function init() {
-    wrap       = document.getElementById('ax-wild');
+    wrap       = document.getElementById('ou-wild');
     if (!wrap) return;
 
     track      = wrap.querySelector('.wild__track');
@@ -339,12 +339,12 @@
     window.addEventListener('mouseup',   onDragEnd);
 
     /* Filter events from filter.js */
-    document.addEventListener('axiom:filter', function (e) {
+    document.addEventListener('ou:filter', function (e) {
       applyFilter(e.detail.filter);
     });
 
     /* Pause auto in clean mode */
-    document.addEventListener('axiom:mode', function (e) {
+    document.addEventListener('ou:mode', function (e) {
       if (e.detail.mode === 'wild') startAuto();
       else clearInterval(autoTimer);
     });

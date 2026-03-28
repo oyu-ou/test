@@ -1,5 +1,5 @@
 /**
- * AXIOM — main.js
+ * ou — main.js
  * Entry point. Boots all modules after DOM ready.
  *
  * Load order (functions.php):

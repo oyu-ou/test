@@ -1,11 +1,11 @@
 /**
- * AXIOM — mode.js
+ * ou — mode.js
  * CLEAN ↔ WILD toggle.
- * Persists in localStorage. Dispatches 'axiom:mode' for other modules.
+ * Persists in localStorage. Dispatches 'ou:mode' for other modules.
  */
 (function () {
   'use strict';
-  var KEY  = 'axiom-mode';
+  var KEY  = 'ou-mode';
   var body = document.documentElement;
   var btn;
 
@@ -31,7 +31,7 @@
       }, 320);
     }
 
-    document.dispatchEvent(new CustomEvent('axiom:mode', { detail: { mode: mode } }));
+    document.dispatchEvent(new CustomEvent('ou:mode', { detail: { mode: mode } }));
   }
 
   function toggle() {

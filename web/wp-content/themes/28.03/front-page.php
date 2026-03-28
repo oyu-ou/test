@@ -1,16 +1,16 @@
 <?php
 /**
- * AXIOM — front-page.php  (v2 — fully filled)
+ * ou — front-page.php  (v2 — fully filled)
  * Sections: Hero → Marquee → Work List → Stats → About → Marquee → Contact → Footer
  */
 get_header();
 
-$hero_video = ax('axiom_video','');
+$hero_video = ax('ou_video','');
 $discs = array_filter([
-    ax('axiom_disc1','Web Design'),
-    ax('axiom_disc2','Video'),
-    ax('axiom_disc3','Photography'),
-    ax('axiom_disc4','Graphic Design'),
+    ax('ou_disc1','Web Design'),
+    ax('ou_disc2','Video'),
+    ax('ou_disc3','Photography'),
+    ax('ou_disc4','Graphic Design'),
 ]);
 
 /* Portfolio query */
@@ -56,17 +56,17 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
 
   <div class="hero__status">
     <div class="hero__edition t-label">
-      <?php echo esc_html(ax('axiom_edition','Issue N°001')); ?><br>
+      <?php echo esc_html(ax('ou_edition','Issue N°001')); ?><br>
       <?php echo date('Y'); ?>
     </div>
     <div class="hero__availability t-label">
       <span class="hero__avail-dot" aria-hidden="true"></span>
-      <?php echo esc_html(ax('axiom_available','Available for new projects')); ?>
+      <?php echo esc_html(ax('ou_available','Available for new projects')); ?>
     </div>
   </div>
 
   <div class="hero__content">
-    <h1 class="hero__name"><?php echo esc_html(ax('axiom_name', get_bloginfo('name'))); ?></h1>
+    <h1 class="hero__name"><?php echo esc_html(ax('ou_name', get_bloginfo('name'))); ?></h1>
     <div class="hero__disciplines" role="list">
       <?php foreach ($discs as $d): ?>
       <span class="hero__disc" role="listitem"><?php echo esc_html($d); ?></span>
@@ -115,7 +115,7 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
       $terms = get_the_terms($pid, 'project_type');
       $cat   = $terms ? strtolower($terms[0]->slug) : 'all';
       $label = $terms ? $terms[0]->name : '';
-      $year  = get_post_meta($pid, 'axiom_year', true) ?: date('Y');
+      $year  = get_post_meta($pid, 'ou_year', true) ?: date('Y');
       $thumb = get_the_post_thumbnail_url($pid, 'project-preview');
       $num   = str_pad($i + 1, 2, '0', STR_PAD_LEFT);
   ?>
@@ -174,14 +174,14 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
     <div>
       <div class="ax-section-label" data-reveal="fade">About</div>
       <h2 class="about__heading" data-reveal="up">
-        <?php echo esc_html(ax('axiom_about_h1','Making things')); ?><br>
-        <?php echo esc_html(ax('axiom_about_h2','that matter.')); ?>
+        <?php echo esc_html(ax('ou_about_h1','Making things')); ?><br>
+        <?php echo esc_html(ax('ou_about_h2','that matter.')); ?>
       </h2>
     </div>
 
     <div class="about__body">
       <p class="about__text" data-reveal="up" data-delay="1">
-        <?php echo esc_html(ax('axiom_about_text',
+        <?php echo esc_html(ax('ou_about_text',
           'I design and build digital experiences for brands with something to say. ' .
           'From motion to identity, web to editorial — the work is always rooted in intention.'
         )); ?>
@@ -189,12 +189,12 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
 
       <div class="about__tags" data-reveal="up" data-delay="2">
         <?php for ($t = 1; $t <= 5; $t++):
-          $tag = ax('axiom_tag'.$t,'');
+          $tag = ax('ou_tag'.$t,'');
           if ($tag): ?>
         <span class="about__tag t-label"><?php echo esc_html($tag); ?></span>
         <?php endif; endfor;
         /* Fallback tags if customizer is empty */
-        if (!ax('axiom_tag1','')): ?>
+        if (!ax('ou_tag1','')): ?>
         <span class="about__tag t-label">Web Design</span>
         <span class="about__tag t-label">Video</span>
         <span class="about__tag t-label">Photography</span>
@@ -231,27 +231,27 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
     <div class="ax-section-label" data-reveal="fade">Contact</div>
 
     <h2 class="contact__big" data-reveal="up">
-      <?php echo esc_html(ax('axiom_contact_h',"Let's work.")); ?>
+      <?php echo esc_html(ax('ou_contact_h',"Let's work.")); ?>
     </h2>
 
     <div class="contact__grid">
 
       <p class="contact__text" data-reveal="up" data-delay="1">
-        <?php echo esc_html(ax('axiom_contact_t',
+        <?php echo esc_html(ax('ou_contact_t',
           'Available for select projects worldwide. ' .
           'Get in touch to start a conversation about what we can build together.'
         )); ?>
       </p>
 
       <div class="contact__links" data-reveal="up" data-delay="2">
-        <?php $email = ax('axiom_email','hello@yoursite.com'); ?>
+        <?php $email = ax('ou_email','hello@yoursite.com'); ?>
         <a href="mailto:<?php echo esc_attr($email); ?>" class="contact__link">
           <?php echo esc_html($email); ?> <span aria-hidden="true">↗</span>
         </a>
         <?php
         $socials = [
-          'axiom_instagram'=>'Instagram','axiom_behance'=>'Behance',
-          'axiom_linkedin'=>'LinkedIn','axiom_vimeo'=>'Vimeo',
+          'ou_instagram'=>'Instagram','ou_behance'=>'Behance',
+          'ou_linkedin'=>'LinkedIn','ou_vimeo'=>'Vimeo',
         ];
         foreach ($socials as $key => $label):
           $url = ax($key,'');
@@ -268,11 +268,11 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
   <div class="ax-footer">
     <span class="ax-footer__copy">
       &copy; <?php echo date('Y'); ?>
-      <?php echo esc_html(ax('axiom_name', get_bloginfo('name'))); ?>.
+      <?php echo esc_html(ax('ou_name', get_bloginfo('name'))); ?>.
       All rights reserved.
     </span>
     <span class="ax-footer__loc">
-      <?php echo esc_html(ax('axiom_location','Remote / Global')); ?>
+      <?php echo esc_html(ax('ou_location','Remote / Global')); ?>
     </span>
   </div>
 

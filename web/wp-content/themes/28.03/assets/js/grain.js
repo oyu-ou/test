@@ -1,5 +1,5 @@
 /**
- * AXIOM — grain.js
+ * ou — grain.js
  * Animated 35mm film grain via canvas at 24fps.
  */
 (function () {

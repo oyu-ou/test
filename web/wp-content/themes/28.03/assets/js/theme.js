@@ -1,11 +1,11 @@
 /**
- * AXIOM — theme.js
+ * ou — theme.js
  * Dark ↔ Light toggle. Persists in localStorage.
  * Applied before body paint (in <head>) to avoid FOUC.
  */
 (function () {
   'use strict';
-  var KEY = 'axiom-theme';
+  var KEY = 'ou-theme';
   var html = document.documentElement;
   var btn;
 
