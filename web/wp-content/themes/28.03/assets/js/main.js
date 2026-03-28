@@ -9,13 +9,13 @@
   'use strict';
 
   function init() {
-    if (window.AxGrain)  AxGrain.init();
-    if (window.AxCursor) AxCursor.init();
-    if (window.AxTheme)  AxTheme.init();
-    if (window.AxMode)   AxMode.init();
-    if (window.AxSlider) AxSlider.init();
-    if (window.AxFilter) AxFilter.init();
-    if (window.AxScroll) AxScroll.init();
+    if (window.OuGrain)  OuGrain.init();
+    if (window.OuCursor) OuCursor.init();
+    if (window.OuTheme)  OuTheme.init();
+    if (window.OuMode)   OuMode.init();
+    if (window.OuSlider) OuSlider.init();
+    if (window.OuFilter) OuFilter.init();
+    if (window.OuScroll) OuScroll.init();
   }
 
   if (document.readyState === 'loading') {

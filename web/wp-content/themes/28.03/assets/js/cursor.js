@@ -14,10 +14,10 @@
   /* ── Build DOM ──────────────────────────────────── */
   function build() {
     wrap = document.createElement('div');
-    wrap.className = 'ax-cursor';
+    wrap.className = 'ou-cursor';
     wrap.setAttribute('aria-hidden','true');
-    dot  = document.createElement('div'); dot.className  = 'ax-cursor__dot';
-    ring = document.createElement('div'); ring.className = 'ax-cursor__ring';
+    dot  = document.createElement('div'); dot.className  = 'ou-cursor__dot';
+    ring = document.createElement('div'); ring.className = 'ou-cursor__ring';
     wrap.appendChild(dot);
     wrap.appendChild(ring);
     document.body.appendChild(wrap);
@@ -47,10 +47,10 @@
   /* ── State detection (event delegation) ─────────── */
   var LINK_SEL = [
     'a', 'button', 'label', '[role="button"]',
-    '.nav__link', '.nav__drawer-link', '.ax-toggle',
+    '.nav__link', '.nav__drawer-link', '.ou-toggle',
     '.clean__item', '.wild__arrow', '.wild__dot',
     '.wild__open', '.about__cta', '.contact__link',
-    '.sp-nav__link', '.sp-back', '.ax-back-top',
+    '.sp-nav__link', '.sp-back', '.ou-back-top',
     '.filter-btn', '.topbar__logo',
   ].join(',');
 
@@ -79,5 +79,5 @@
     loop();
   }
 
-  window.AxCursor = { init: init };
+  window.OuCursor = { init: init };
 })();

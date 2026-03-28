@@ -42,5 +42,5 @@
     draw();
   }
 
-  window.AxGrain = { init: init };
+  window.OuGrain = { init: init };
 })();

@@ -306,7 +306,7 @@
 
   /* ── Init ─────────────────────────────────────────── */
   function init() {
-    wrap       = document.getElementById('ou-wild');
+    wrap       = document.getElementById('ou-slider');
     if (!wrap) return;
 
     track      = wrap.querySelector('.wild__track');
@@ -355,5 +355,5 @@
     });
   }
 
-  window.AxSlider = { init: init };
+  window.OuSlider = { init: init };
 })();

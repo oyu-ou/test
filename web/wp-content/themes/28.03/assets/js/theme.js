@@ -36,5 +36,5 @@
     if (s) html.setAttribute('data-theme', s);
   })();
 
-  window.AxTheme = { init: init };
+  window.OuTheme = { init: init };
 })();

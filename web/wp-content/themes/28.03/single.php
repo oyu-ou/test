@@ -434,7 +434,7 @@ $has_thumb    = has_post_thumbnail();
   </div>
 
   <!-- ── BACK LINK ────────────────────────── -->
-  <a href="<?php echo esc_url( home_url('/') ); ?>#ax-clean" class="sp-back">
+  <a href="<?php echo esc_url( home_url('/') ); ?>#work" class="sp-back">
     <span aria-hidden="true">←</span> All Projects
   </a>
 
@@ -569,7 +569,7 @@ $has_thumb    = has_post_thumbnail();
     var h = document.getElementById('sp-hero-section');
     if(h) setTimeout(function(){ h.classList.add('in'); }, 200);
   }
-  var loader = document.getElementById('ou-loader');
+  var loader = document.getElementById('loader');
   if(loader){
     loader.addEventListener('transitionend', trigger, {once:true});
     setTimeout(trigger, 2200); /* fallback */

@@ -81,11 +81,11 @@
 
         /* Scroll-only links: about and contact */
         if (filter === 'about') {
-          scrollTo('ax-about');
+          scrollTo('about');
           return;
         }
         if (filter === 'contact') {
-          scrollTo('ax-contact');
+          scrollTo('contact');
           return;
         }
 
@@ -95,17 +95,17 @@
 
         /* In CLEAN mode — also scroll to work section */
         if (mode === 'clean') {
-          scrollTo('ax-clean');
+          scrollTo('work');
         }
       });
     });
 
-    /* Also wire up plain anchor links */
-    document.querySelectorAll('a[href^="#ax-"]').forEach(function (a) {
-      if (a.hasAttribute('data-filter')) return; /* already handled above */
+    /* Smooth scroll for plain anchor links without data-filter */
+    document.querySelectorAll('a[href^="#"]:not([data-filter])').forEach(function (a) {
       a.addEventListener('click', function (e) {
-        var id = a.getAttribute('href').slice(1);
-        var el = document.getElementById(id);
+        var href = a.getAttribute('href');
+        if (href === '#') return;
+        var el = document.getElementById(href.slice(1));
         if (!el) return;
         e.preventDefault();
         var navH = parseInt(getComputedStyle(document.documentElement)
@@ -120,5 +120,5 @@
     apply('all');
   }
 
-  window.AxFilter = { init: init, apply: apply };
+  window.OuFilter = { init: init, apply: apply };
 })();

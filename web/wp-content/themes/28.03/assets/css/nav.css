@@ -4,7 +4,7 @@
    ═══════════════════════════════════════════════════ */
 
 /* ── TOP BAR ──────────────────────────────────────── */
-#ou-topbar {
+#ou-header {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: var(--z-nav);
@@ -41,7 +41,7 @@
 }
 
 /* Generic toggle pill */
-.ax-toggle {
+.ou-toggle {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -60,8 +60,8 @@
               border-color var(--t-fast);
 }
 
-.ax-toggle:hover             { border-color: var(--fg); }
-.ax-toggle.is-on             { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.ou-toggle:hover             { border-color: var(--fg); }
+.ou-toggle.is-on             { background: var(--fg); color: var(--bg); border-color: var(--fg); }
 
 /* Mode toggle — slightly wider */
 #toggle-mode {
@@ -70,7 +70,7 @@
 }
 
 /* ── BOTTOM NAV ───────────────────────────────────── */
-#ax-nav {
+#ou-nav {
   position: fixed;
   bottom: 0; left: 0; right: 0;
   z-index: var(--z-nav);

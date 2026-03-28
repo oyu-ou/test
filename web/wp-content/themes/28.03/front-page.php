@@ -42,7 +42,7 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
 <!-- ══════════════════════════════════════════
      HERO
      ══════════════════════════════════════════ -->
-<section id="ax-hero">
+<section id="hero">
 
   <div class="hero__video-bg" aria-hidden="true">
     <?php if ($hero_video): ?>
@@ -84,10 +84,10 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
 <!-- ══════════════════════════════════════════
      MARQUEE
      ══════════════════════════════════════════ -->
-<div class="ax-marquee" aria-hidden="true">
-  <div class="ax-marquee__track">
+<div class="ou-marquee" aria-hidden="true">
+  <div class="ou-marquee__track">
     <?php for ($r = 0; $r < 4; $r++): foreach ($marquee as $w): ?>
-    <span class="ax-marquee__item"><?php echo esc_html($w); ?><span class="ax-marquee__sep"></span></span>
+    <span class="ou-marquee__item"><?php echo esc_html($w); ?><span class="ou-marquee__sep"></span></span>
     <?php endforeach; endfor; ?>
   </div>
 </div>
@@ -95,11 +95,11 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
 <!-- ══════════════════════════════════════════
      WORK LIST
      ══════════════════════════════════════════ -->
-<section id="ax-clean">
+<section id="work">
 
   <div class="clean__header">
     <div>
-      <div class="ax-section-label" data-reveal="fade">Selected Work</div>
+      <div class="ou-section-label" data-reveal="fade">Selected Work</div>
       <h2 class="clean__title" data-reveal="up">Projects</h2>
     </div>
     <span class="clean__count t-label" data-reveal="up" data-delay="2">
@@ -149,18 +149,18 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
 <!-- ══════════════════════════════════════════
      STATS
      ══════════════════════════════════════════ -->
-<div class="ax-stats" role="list">
+<div class="ou-stats" role="list">
   <?php
   $stats = [
-    ['120+','Projects Delivered'],
-    ['8','Years Active'],
-    ['14','Awards'],
-    ['60+','Happy Clients'],
+    [ ou('ou_stat1_num','120+'), ou('ou_stat1_lbl','Projects Delivered') ],
+    [ ou('ou_stat2_num','8'),    ou('ou_stat2_lbl','Years Active') ],
+    [ ou('ou_stat3_num','14'),   ou('ou_stat3_lbl','Awards') ],
+    [ ou('ou_stat4_num','60+'),  ou('ou_stat4_lbl','Happy Clients') ],
   ];
   foreach ($stats as $i => $s): ?>
-  <div class="ax-stat" role="listitem" data-reveal="up" data-delay="<?php echo $i+1; ?>">
-    <div class="ax-stat__num"><?php echo esc_html($s[0]); ?></div>
-    <div class="ax-stat__label"><?php echo esc_html($s[1]); ?></div>
+  <div class="ou-stat" role="listitem" data-reveal="up" data-delay="<?php echo $i+1; ?>">
+    <div class="ou-stat__num"><?php echo esc_html($s[0]); ?></div>
+    <div class="ou-stat__label"><?php echo esc_html($s[1]); ?></div>
   </div>
   <?php endforeach; ?>
 </div>
@@ -168,11 +168,11 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
 <!-- ══════════════════════════════════════════
      ABOUT
      ══════════════════════════════════════════ -->
-<section id="ax-about">
+<section id="about">
   <div class="about__grid">
 
     <div>
-      <div class="ax-section-label" data-reveal="fade">About</div>
+      <div class="ou-section-label" data-reveal="fade">About</div>
       <h2 class="about__heading" data-reveal="up">
         <?php echo esc_html(ou('ou_about_h1','Making things')); ?><br>
         <?php echo esc_html(ou('ou_about_h2','that matter.')); ?>
@@ -203,7 +203,7 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
         <?php endif; ?>
       </div>
 
-      <a href="#ax-contact" class="about__cta" data-reveal="up" data-delay="3">
+      <a href="#contact" class="about__cta" data-reveal="up" data-delay="3">
         Start a conversation <span aria-hidden="true">→</span>
       </a>
     </div>
@@ -214,10 +214,10 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
 <!-- ══════════════════════════════════════════
      SECOND MARQUEE (reversed)
      ══════════════════════════════════════════ -->
-<div class="ax-marquee" aria-hidden="true">
-  <div class="ax-marquee__track" style="animation-direction:reverse;animation-duration:36s;">
+<div class="ou-marquee" aria-hidden="true">
+  <div class="ou-marquee__track" style="animation-direction:reverse;animation-duration:36s;">
     <?php for ($r = 0; $r < 4; $r++): foreach (array_reverse($marquee) as $w): ?>
-    <span class="ax-marquee__item" style="color:var(--fg-low);"><?php echo esc_html($w); ?><span class="ax-marquee__sep" style="background:var(--fg-low)"></span></span>
+    <span class="ou-marquee__item" style="color:var(--fg-low);"><?php echo esc_html($w); ?><span class="ou-marquee__sep" style="background:var(--fg-low)"></span></span>
     <?php endforeach; endfor; ?>
   </div>
 </div>
@@ -225,10 +225,10 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
 <!-- ══════════════════════════════════════════
      CONTACT
      ══════════════════════════════════════════ -->
-<section id="ax-contact">
+<section id="contact">
 
   <div class="contact__inner">
-    <div class="ax-section-label" data-reveal="fade">Contact</div>
+    <div class="ou-section-label" data-reveal="fade">Contact</div>
 
     <h2 class="contact__big" data-reveal="up">
       <?php echo esc_html(ou('ou_contact_h',"Let's work.")); ?>
@@ -265,13 +265,13 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
     </div>
   </div>
 
-  <div class="ax-footer">
-    <span class="ax-footer__copy">
+  <div class="ou-footer">
+    <span class="ou-footer__copy">
       &copy; <?php echo date('Y'); ?>
       <?php echo esc_html(ou('ou_name', get_bloginfo('name'))); ?>.
       All rights reserved.
     </span>
-    <span class="ax-footer__loc">
+    <span class="ou-footer__location">
       <?php echo esc_html(ou('ou_location','Remote / Global')); ?>
     </span>
   </div>

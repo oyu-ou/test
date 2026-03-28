@@ -8,7 +8,7 @@
 
 @media (max-width: 768px) {
   :root { --pad-x: 24px; }
-  #ax-about  { grid-template-columns: 1fr; }
+  #about  { grid-template-columns: 1fr; }
   .contact__grid { grid-template-columns: 1fr; }
   .contact__links { align-items: flex-start; }
 }
@@ -17,7 +17,7 @@
   :root { --pad-x: 16px; }
   .hero__availability { display: none; }
   .topbar__right { gap: 4px; }
-  .ax-toggle { padding: 5px 10px; font-size: 9px; }
+  .ou-toggle { padding: 5px 10px; font-size: 9px; }
 }
 
 /* ── Reduced motion ───────────────────────────────── */

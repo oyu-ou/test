@@ -8,7 +8,7 @@
 
   /* ── 1. LOADER ───────────────────────────────────── */
   function initLoader() {
-    var loader = document.getElementById('ou-loader');
+    var loader = document.getElementById('loader');
     if (!loader) return;
 
     var bar   = loader.querySelector('.loader__bar');
@@ -158,7 +158,7 @@
 
   /* ── 9. HOVER PREVIEW (clean list) ──────────────── */
   function initPreview() {
-    var preview = document.getElementById('preview-img');
+    var preview = document.getElementById('ou-preview');
     if (!preview || window.matchMedia('(hover:none)').matches) return;
 
     var imgEl = preview.querySelector('img');
@@ -212,7 +212,7 @@
 
   /* ── 10. BACK-TO-TOP ─────────────────────────────── */
   function initBackTop() {
-    var btn = document.querySelector('.ax-back-top');
+    var btn = document.querySelector('.ou-back-top');
     if (!btn) return;
     window.addEventListener('scroll', function () {
       btn.classList.toggle('visible', window.scrollY > 400);
@@ -242,5 +242,5 @@
     initBackTop();
   }
 
-  window.AxScroll = { init: init };
+  window.OuScroll = { init: init };
 })();

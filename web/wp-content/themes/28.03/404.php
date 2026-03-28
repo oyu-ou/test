@@ -228,7 +228,7 @@ get_header(); ?>
       <a href="<?php echo esc_url(home_url('/')); ?>" class="e404__btn-primary">
         Back home <span aria-hidden="true">→</span>
       </a>
-      <a href="<?php echo esc_url(home_url('/') . '#ax-clean'); ?>" class="e404__btn-ghost">
+      <a href="<?php echo esc_url(home_url('/') . '#work'); ?>" class="e404__btn-ghost">
         View work
       </a>
     </div>
@@ -238,9 +238,9 @@ get_header(); ?>
   <!-- Suggested navigation -->
   <div class="e404__suggestions" aria-label="Site sections">
     <p class="e404__suggestions-label">Quick links</p>
-    <a href="<?php echo esc_url(home_url('/')); ?>#ax-clean"   class="e404__sugg-link">Work <span aria-hidden="true">↗</span></a>
-    <a href="<?php echo esc_url(home_url('/')); ?>#ax-about"   class="e404__sugg-link">About <span aria-hidden="true">↗</span></a>
-    <a href="<?php echo esc_url(home_url('/')); ?>#ax-contact" class="e404__sugg-link">Contact <span aria-hidden="true">↗</span></a>
+    <a href="<?php echo esc_url(home_url('/')); ?>#work"   class="e404__sugg-link">Work <span aria-hidden="true">↗</span></a>
+    <a href="<?php echo esc_url(home_url('/')); ?>#about"   class="e404__sugg-link">About <span aria-hidden="true">↗</span></a>
+    <a href="<?php echo esc_url(home_url('/')); ?>#contact" class="e404__sugg-link">Contact <span aria-hidden="true">↗</span></a>
   </div>
 
 </main>

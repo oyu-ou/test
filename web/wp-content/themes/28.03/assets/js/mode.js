@@ -47,5 +47,5 @@
     apply(saved, false);
   }
 
-  window.AxMode = { init: init, apply: apply };
+  window.OuMode = { init: init, apply: apply };
 })();

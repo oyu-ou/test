@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════════════ */
 
 /* ── LOADER ───────────────────────────────────────── */
-#ou-loader {
+#loader {
   position: fixed; inset: 0;
   z-index: var(--z-loader);
   background: var(--bg);
@@ -17,7 +17,7 @@
   transition: opacity 0.7s var(--ease-out), visibility 0.7s;
 }
 
-#ou-loader.done {
+#loader.done {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -81,9 +81,9 @@
 
 /* ── CUSTOM CURSOR ────────────────────────────────── */
 /* No mix-blend-mode — cursor must be visible on BOTH dark and light themes */
-@media (hover: none) { .ax-cursor { display: none !important; } }
+@media (hover: none) { .ou-cursor { display: none !important; } }
 
-.ax-cursor {
+.ou-cursor {
   position: fixed;
   top: 0; left: 0;
   z-index: var(--z-cursor);
@@ -91,7 +91,7 @@
   /* NO mix-blend-mode here — it made white cursor invisible on white bg */
 }
 
-.ax-cursor__dot {
+.ou-cursor__dot {
   position: absolute;
   width: 8px; height: 8px;
   background: var(--fg);           /* black on light, white on dark */
@@ -103,7 +103,7 @@
               border-radius 0.25s;
 }
 
-.ax-cursor__ring {
+.ou-cursor__ring {
   position: absolute;
   width: 36px; height: 36px;
   border: 1.5px solid var(--fg);   /* black ring on light, white ring on dark */
@@ -118,18 +118,18 @@
 }
 
 /* Link hover — accent fill */
-body.cur-link .ax-cursor__dot  {
+body.cur-link .ou-cursor__dot  {
   width: 46px; height: 46px;
   background: var(--accent);
   border-radius: 50%;
 }
-body.cur-link .ax-cursor__ring { opacity: 0; }
+body.cur-link .ou-cursor__ring { opacity: 0; }
 
 /* Text cursor */
-body.cur-text .ax-cursor__dot  { width: 2px; height: 26px; border-radius: 1px; }
-body.cur-text .ax-cursor__ring { opacity: 0; }
+body.cur-text .ou-cursor__dot  { width: 2px; height: 26px; border-radius: 1px; }
+body.cur-text .ou-cursor__ring { opacity: 0; }
 
 /* Click feedback */
-.ax-cursor.clicking .ax-cursor__dot {
+.ou-cursor.clicking .ou-cursor__dot {
   transform: translate(-50%,-50%) scale(0.6);
 }

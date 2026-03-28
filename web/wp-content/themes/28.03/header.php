@@ -19,7 +19,7 @@
 <?php wp_body_open(); ?>
 
 <!-- LOADER -->
-<div id="ou-loader" role="status" aria-label="Loading">
+<div id="loader" role="status" aria-label="Loading">
   <div class="loader__num"><span class="loader__num-inner">00</span></div>
   <div class="loader__foot">
     <span class="loader__site-name"><?php echo esc_html( ou('ou_name', get_bloginfo('name')) ); ?></span>
@@ -28,7 +28,7 @@
 </div>
 
 <!-- TOP BAR -->
-<header id="ou-topbar">
+<header id="ou-header">
 
   <!-- REPLACE: logo — swap SVG below or set custom logo in Customizer → Site Identity -->
   <a href="<?php echo esc_url( home_url('/') ); ?>" class="topbar__logo" aria-label="<?php echo esc_attr( ou('ou_name', get_bloginfo('name')) ); ?>">
@@ -45,12 +45,12 @@
 
   <div class="topbar__right">
     <!-- Dark / Light toggle -->
-    <button id="toggle-theme" class="ax-toggle" aria-label="Toggle colour scheme" aria-pressed="false">
+    <button id="toggle-theme" class="ou-toggle" aria-label="Toggle colour scheme" aria-pressed="false">
       Light
     </button>
 
     <!-- CLEAN / WILD mode toggle -->
-    <button id="toggle-mode" class="ax-toggle" aria-label="Toggle portfolio mode" aria-pressed="false">
+    <button id="toggle-mode" class="ou-toggle" aria-label="Toggle portfolio mode" aria-pressed="false">
       Wild ↗
     </button>
   </div>
@@ -58,7 +58,7 @@
 </header>
 
 <!-- WILD MODE -->
-<div id="ou-wild" aria-label="Portfolio slider" role="region">
+<div id="ou-slider" aria-label="Portfolio slider" role="region">
 
   <!-- Counter -->
   <div class="wild__counter">
@@ -82,13 +82,13 @@
 </div>
 
 <!-- HOVER PREVIEW (clean list mode) -->
-<div id="preview-img" aria-hidden="true">
+<div id="ou-preview" aria-hidden="true">
   <img src="" alt="" loading="lazy">
   <div class="preview__placeholder"></div>
 </div>
 
 <!-- Back to top -->
-<button class="ax-back-top" aria-label="Back to top">↑</button>
+<button class="ou-back-top" aria-label="Back to top">↑</button>
 
 <!-- PAGE WRAPPER -->
 <div id="page-wrap">

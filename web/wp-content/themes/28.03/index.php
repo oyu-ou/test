@@ -281,7 +281,7 @@ get_header(); ?>
 <!-- Re-init reveals for this page -->
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  if (window.AxScroll) AxScroll.init();
+  if (window.OuScroll) OuScroll.init();
   var items = document.querySelectorAll('.arch__item');
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('is-on'); io.unobserve(e.target); } });
