@@ -20,11 +20,11 @@
 
 <!-- LOADER -->
 <div id="loader" role="status" aria-label="Loading">
+  <span class="loader__site-name t-label"><?php echo esc_html( ou('ou_name', get_bloginfo('name')) ); ?></span>
+  
+  <div class="loader__bar-wrap"><div class="loader__bar"></div></div>
+  
   <div class="loader__num"><span class="loader__num-inner">00</span></div>
-  <div class="loader__foot">
-    <span class="loader__site-name"><?php echo esc_html( ou('ou_name', get_bloginfo('name')) ); ?></span>
-    <div class="loader__bar-wrap"><div class="loader__bar"></div></div>
-  </div>
 </div>
 
 <!-- TOP BAR -->

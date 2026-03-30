@@ -125,7 +125,7 @@
 /* ── Scroll cue ───────────────────────────────────── */
 .hero__scroll {
   position: absolute;
-  bottom: var(--nav-h);
+  bottom: var(--pad-x);
   right: 50%;
   transform: translate(50%, 0);
   display: flex;
