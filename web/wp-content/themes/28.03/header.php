@@ -29,17 +29,10 @@
 
 <!-- TOP BAR -->
 <header id="ou-header">
-
-  <!-- REPLACE: logo — swap SVG below or set custom logo in Customizer → Site Identity -->
   <a href="<?php echo esc_url( home_url('/') ); ?>" class="topbar__logo" aria-label="<?php echo esc_attr( ou('ou_name', get_bloginfo('name')) ); ?>">
-    <?php if ( has_custom_logo() ) :
-      the_custom_logo();
-    else : ?>
-    <svg class="topbar__logo-mark" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <!-- REPLACE: logo — placeholder X mark -->
-      <line x1="4"  y1="4"  x2="24" y2="24" stroke="currentColor" stroke-width="1.2"/>
-      <line x1="24" y1="4"  x2="4"  y2="24" stroke="currentColor" stroke-width="1.2"/>
-    </svg>
+      <?php if ( has_custom_logo() ) :
+        the_custom_logo();
+      else : ?>
     <?php endif; ?>
   </a>
 

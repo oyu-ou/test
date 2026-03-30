@@ -94,6 +94,8 @@
   --pad-x:     clamp(12px, 2vw, 24px);
   --pad-y:     clamp(60px, 10vw, 140px);
   --gap:       1px;   /* grid gap between items */
+  --button-p: 6px 12px;
+  --button-h: 1.75rem;
 
   /* ── Motion ─────────────────────────────────────── */
   --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);

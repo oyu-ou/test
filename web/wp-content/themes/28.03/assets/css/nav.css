@@ -8,42 +8,36 @@
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: var(--z-nav);
-  padding: 18px var(--pad-x);
+  padding: var(--pad-x);
   display: flex;
   align-items: center;
   justify-content: space-between;
   pointer-events: none;
-  mix-blend-mode: normal;
 }
 
 /* Logo */
 .topbar__logo {
+  display: none;
+  pointer-events: none;
+}
+
+.custom-logo-link,
+.topbar__right {
   pointer-events: all;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+}
+
+.custom-logo-link {
+  width: 28px;
+  height: 28px;
   text-decoration: none;
 }
 
-.topbar__logo-mark {
-  width: 28px; height: 28px;
-  display: block;
-  color: var(--fg);
-  transition: color var(--t-slow);
-}
-
-/* PNG logo — white by default, invert to black on light theme */
-.topbar__logo img,
-.topbar__logo .custom-logo {
-  height: 32px;
+.custom-logo-link img {
+  height: auto;
   width: auto;
-  display: block;
-  filter: none;
-  transition: filter var(--t-slow);
 }
 
-[data-theme="light"] .topbar__logo img,
-[data-theme="light"] .topbar__logo .custom-logo {
+[data-theme="light"] .custom-logo-link img{
   filter: invert(1);
 }
 
@@ -51,19 +45,15 @@
 .topbar__right {
   display: flex;
   align-items: center;
-  gap: 6px;
-  pointer-events: all;
+  gap: var(--sz-2xs);
+  gap: var(--button-h);
 }
 
-/* Generic toggle pill */
+/* Generic toggle pill 
 .ou-toggle {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
-  border: 1px solid var(--border-hi);
-  background: transparent;
-  color: var(--fg);
+  padding: var(--button-p);
   font-family: var(--font-mono);
   font-size: var(--sz-xs);
   letter-spacing: var(--ls-wider);
@@ -73,15 +63,95 @@
   user-select: none;
   transition: background var(--t-fast), color var(--t-fast),
               border-color var(--t-fast);
+  border: 1px solid var(--border-hi);
 }
 
 .ou-toggle:hover             { border-color: var(--fg); }
 .ou-toggle.is-on             { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+*/
 
-/* Mode toggle — slightly wider */
-#toggle-mode {
-  min-width: 88px;
-  justify-content: center;
+.ou-toggle {
+  position: relative;
+  width: var(--button-h);
+  height: var(--button-h);
+  background-color: var(--fg);
+  text-indent: -9999px;
+  cursor: none;
+  user-select: none;
+  transition: all var(--t-fast);
+}
+
+.ou-toggle:hover::after  {
+  width: 150%;
+  left: -25%;
+}
+
+.ou-toggle.is-on {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+
+.ou-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%; 
+  left: -50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg);
+  border: 0.5px solid var(--fg);
+  transition: all 0.3s var(--ease-out);
+}
+
+/* Mode toggle */
+#toggle-mode.ou-toggle {
+  margin-right: var(--pad-x);
+  background-color: var(--accent);
+}
+
+#toggle-mode.ou-toggle::after {
+  top: 30%;
+  left: 25%;
+  background-color: var(--fg);
+  border-color: var(--accent);
+}
+
+#toggle-mode.ou-toggle.ou-toggle::before {
+  content: "";
+  position: absolute;
+  top: 75%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  width: 100%; 
+  height: 100%;
+  background-color: var(--bg);
+  border: 0.5px solid var(--fg);
+  transition: all 0.3s var(--ease-out);
+  z-index: -1;
+}
+
+#toggle-mode.ou-toggle:hover {
+  rotate: 8deg;
+  z-index: 0;
+}
+
+#toggle-mode.ou-toggle:hover::after {
+  width: 100%;
+  top: -25%;
+  left: -50%;
+  transform: scale(0.8);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+#toggle-mode.ou-toggle:hover::before {
+  top: 40%;
+  left: 50%;
+  transform: scale(0.6);
+  rotate: 45deg;
+  z-index: -2;
 }
 
 /* ── BOTTOM NAV ───────────────────────────────────── */
