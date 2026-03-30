@@ -43,42 +43,43 @@ $marquee = ['Web Design','Video','Photography','Graphic Design','Art Direction',
      HERO
      ══════════════════════════════════════════ -->
 <section id="hero">
-
-  <div class="hero__video-bg" aria-hidden="true">
-    <?php if ($hero_video): ?>
-    <video id="hero-video" autoplay muted loop playsinline preload="auto">
-      <source src="<?php echo esc_url($hero_video); ?>" type="video/mp4">
-    </video>
-    <?php else: ?>
-    <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 55% at 65% 40%,rgba(255,214,0,0.055) 0%,transparent 65%),radial-gradient(ellipse 45% 70% at 15% 85%,rgba(255,255,255,0.025) 0%,transparent 60%),#000;"></div>
-    <?php endif; ?>
-  </div>
-
-  <div class="hero__status">
+  <div class="hero__content">
     <div class="hero__edition t-label">
       <?php echo esc_html(ou('ou_edition','Issue N°001')); ?><br>
       <?php echo date('Y'); ?>
     </div>
+
+    <!--
     <div class="hero__availability t-label">
       <span class="hero__avail-dot" aria-hidden="true"></span>
       <?php echo esc_html(ou('ou_available','Available for new projects')); ?>
     </div>
-  </div>
-
-  <div class="hero__content">
+    -->
     <h1 class="hero__name"><?php echo esc_html(ou('ou_name', get_bloginfo('name'))); ?></h1>
+    
+    <!--
     <div class="hero__disciplines" role="list">
       <?php foreach ($discs as $d): ?>
-      <span class="hero__disc" role="listitem"><?php echo esc_html($d); ?></span>
-      <?php endforeach; ?>
+        <span class="hero__disc" role="listitem"><?php echo esc_html($d); ?></span>
+        <?php endforeach; ?>
     </div>
+    -->
   </div>
 
   <div class="hero__scroll">
-    <div class="hero__scroll-line" aria-hidden="true"></div>
-    <span class="hero__scroll-label">Scroll</span>
+    <div class="hero__scroll-arrow t-label" aria-hidden="true"><</div>
+    <span class="t-label">Scroll</span>
   </div>
 
+  <div class="hero__video-bg" aria-hidden="true">
+    <?php if ($hero_video): ?>
+    <video id="hero-video" autoplay muted playsinline preload="auto">
+      <source src="<?php echo esc_url($hero_video); ?>" type="video/mp4">
+    </video>
+    <?php else: ?>
+    <div></div>
+    <?php endif; ?>
+  </div>
 </section>
 
 <!-- ══════════════════════════════════════════

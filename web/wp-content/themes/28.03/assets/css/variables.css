@@ -24,6 +24,8 @@
   --grain:        0.06;
   --overlay:      rgba(0,0,0,0.55);
   --overlay-hard: rgba(0,0,0,0.82);
+
+  --transition: all var(--t-slow) var(--ease-out);
 }
 
 /* ── Light mode ───────────────────────────────────── */
@@ -74,6 +76,7 @@
   --w-bold:   700;
 
   /* Leading */
+  --lh-xs:    0.8;
   --lh-tight:  0.92;
   --lh-snug:   1.1;
   --lh-normal: 1.5;
@@ -88,7 +91,7 @@
 
   /* ── Layout ─────────────────────────────────────── */
   --nav-h:     52px;
-  --pad-x:     clamp(20px, 4.5vw, 72px);
+  --pad-x:     clamp(12px, 2vw, 24px);
   --pad-y:     clamp(60px, 10vw, 140px);
   --gap:       1px;   /* grid gap between items */
 

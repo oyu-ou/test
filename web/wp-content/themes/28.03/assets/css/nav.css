@@ -32,6 +32,21 @@
   transition: color var(--t-slow);
 }
 
+/* PNG logo — white by default, invert to black on light theme */
+.topbar__logo img,
+.topbar__logo .custom-logo {
+  height: 32px;
+  width: auto;
+  display: block;
+  filter: none;
+  transition: filter var(--t-slow);
+}
+
+[data-theme="light"] .topbar__logo img,
+[data-theme="light"] .topbar__logo .custom-logo {
+  filter: invert(1);
+}
+
 /* Controls group */
 .topbar__right {
   display: flex;
