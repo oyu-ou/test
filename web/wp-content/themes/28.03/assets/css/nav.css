@@ -112,6 +112,7 @@
 }
 
 #toggle-mode.ou-toggle::after {
+  width: 100%;
   top: 30%;
   left: 25%;
   background-color: var(--fg);
@@ -132,26 +133,45 @@
   z-index: -1;
 }
 
-#toggle-mode.ou-toggle:hover {
+#toggle-mode.ou-toggle:hover,
+#toggle-mode.ou-toggle.is-on {
   rotate: 8deg;
-  z-index: 0;
 }
 
-#toggle-mode.ou-toggle:hover::after {
-  width: 100%;
+#toggle-mode.ou-toggle:hover::after,
+#toggle-mode.ou-toggle.is-on::after {
   top: -25%;
   left: -50%;
   transform: scale(0.8);
   border-radius: 50%;
-  z-index: 1;
 }
 
-#toggle-mode.ou-toggle:hover::before {
+#toggle-mode.ou-toggle:hover::before,
+#toggle-mode.ou-toggle.is-on::before {
   top: 40%;
   left: 50%;
   transform: scale(0.6);
   rotate: 45deg;
-  z-index: -2;
+}
+
+/* is on hover */
+#toggle-mode.ou-toggle.is-on:hover {
+  rotate: unset;
+}
+
+#toggle-mode.ou-toggle.is-on:hover:after {
+  width: 100%;
+  top: 30%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  border-radius: unset;
+}
+
+#toggle-mode.ou-toggle.is-on:hover::before {
+  top: 75%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  rotate: unset;
 }
 
 /* ── BOTTOM NAV ───────────────────────────────────── */
